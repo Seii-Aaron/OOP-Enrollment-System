@@ -1,4 +1,5 @@
-#Title
+
+#Enrollment System
 ---
 **Author:** Joseph Aaron De Silva
 
@@ -8,31 +9,3 @@
 
 !(Screenshot)[]
 ![scan.png](src/main/resources/images/scan.png)
-
-
-
-//# Header 1
-//## Header 2
-//### Header 3
-
----
-This is a simple **markdown.**
-
-**bold**
-
-List
-- list1
-- list2
-
-1. wow
-2. hello
-3. world
-
-Links: https://github.com/Seii-Aaron/OOP-Enrollment-System
-
-Image: ![scan.png](src/main/resources/images/scan.png)
-
-
----
-Submission Style
-...
