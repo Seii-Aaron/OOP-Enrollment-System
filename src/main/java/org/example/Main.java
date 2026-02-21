@@ -1,5 +1,8 @@
 package org.example;
 
+import org.example.model.Course;
+import org.example.model.Student;
+
 public class Main{
     public static void main(String[] args) {
         Student s = new Student();
@@ -12,8 +15,6 @@ public class Main{
         c.setCourseName("InteProg");
         c.setProgram("Information Technology");
 
-        s.display();
-        c.display();
 
     }
 }
