@@ -8,7 +8,9 @@ public class Course {
     public Course(){
 
     }
-
+    public Course(String courseID){
+        this.courseID = courseID;
+    }
     public Course(String courseID, String courseName, String program){
         this.courseID = courseID;
         this.courseName = courseName;
@@ -35,13 +37,6 @@ public class Course {
     public void setProgram(String program){
         this.program = program;
     }
-
-//    public void display(){
-//        System.out.println("Course ID: " + getCourseID());
-//        System.out.println("Course Name: " + getCourseName());
-//        System.out.println("Course Program: " + getProgram());
-//    }
-
 
     @Override
     public String toString() {

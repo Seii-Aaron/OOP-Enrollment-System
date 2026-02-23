@@ -36,7 +36,7 @@ public class StudentRegistration {
         for(int i = 0; i< studentList.size(); i++){
             if(studentList.get(i).getStudentID().equals(student.getStudentID())){
                 studentList.remove(i);
-                return "Successfully Deleted";
+                return "Successfully Deleted.";
             }
         }
         return "Error.";
