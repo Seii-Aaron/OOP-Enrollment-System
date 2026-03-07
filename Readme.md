@@ -1,5 +1,5 @@
 
-#Enrollment System
+# Enrollment System
 ---
 **Author:** Joseph Aaron De Silva
 
@@ -8,4 +8,10 @@
 - Employs objects, constructors, getters, setters, access modifiers, OOP, etc.
 
 !(Screenshot)[]
-![scan.png](src/main/resources/images/scan.png)
+![scan.png](src/main/resources/images/scan.png) 
+
+
+# Inheritance
+---
+
+
