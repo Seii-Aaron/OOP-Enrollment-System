@@ -29,6 +29,11 @@ public class Student extends Person{
     }
 
     @Override
+    public void mainTask() {
+        System.out.println("I study.");
+    }
+
+    @Override
     public String toString() {
         return "Student{" +
                 "studentID='" + super.getID() + '\'' +
