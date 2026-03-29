@@ -1,8 +1,9 @@
 package org.example;
 
 import org.example.model.*;
-import org.example.service.CourseRegistration;
-import org.example.service.StudentRegistration;
+import org.example.service.CampusRegistrar;
+import org.example.service.CourseRegistrationImpl;
+import org.example.service.StudentRegistrationImpl;
 
 import java.util.Scanner;
 
@@ -15,8 +16,10 @@ public class Main{
         Instructor instructor = new Instructor();
         instructor.mainTask();
 
-        StudentRegistration studentRegistration = new StudentRegistration();
-        CourseRegistration courseRegistration = new CourseRegistration();
+        StudentRegistrationImpl studentRegistration = new StudentRegistrationImpl();
+        CourseRegistrationImpl courseRegistration = new CourseRegistrationImpl();
+
+        CampusRegistrar campusRegistrar = new CampusRegistrar(studentRegistration, courseRegistration);
 
         //interactive
         while (true){
@@ -50,27 +53,27 @@ public class Main{
                         System.out.println("Enter Program: ");
                         String studProgram = scan.nextLine();
 
-                        studentRegistration.saveStudent(new Student(studID, studName, studProgram));
+                        campusRegistrar.saveStudent(new Student(studID, studName, studProgram));
                         break;
 
                     case 2:
-                        studentRegistration.displayAllStudent();
+                        campusRegistrar.displayAllStudent();
                         break;
 
                     case 3:
-                        studentRegistration.displayAllStudent();
+                        campusRegistrar.displayAllStudent();
                         System.out.println("Update Student.");
                         System.out.println("Enter Student ID: ");
                         String newStudID = scan.nextLine();
-                        studentRegistration.updateStudent(new Student(newStudID));
+                        campusRegistrar.updateStudent(new Student(newStudID));
                         break;
 
                     case 4:
-                        studentRegistration.displayAllStudent();
+                        campusRegistrar.displayAllStudent();
                         System.out.println("Remove Student.");
                         System.out.println("Enter Student ID: ");
                         String delStudID = scan.nextLine();
-                        System.out.println(studentRegistration.removeStudent(new Student(delStudID)));
+                        System.out.println(campusRegistrar.removeStudent(new Student(delStudID)));
                         break;
 
                     default:
@@ -102,27 +105,27 @@ public class Main{
                         System.out.println("Enter Program: ");
                         String courseProgram = scan.nextLine();
 
-                        courseRegistration.save(new Course(courseID, courseName, courseProgram));
+                        campusRegistrar.saveCourse(new Course(courseID, courseName, courseProgram));
                         break;
 
                     case 2:
-                        courseRegistration.displayAll();
+                        campusRegistrar.displayAllCourses();
                         break;
 
                     case 3:
-                        courseRegistration.displayAll();
+                        campusRegistrar.displayAllCourses();
                         System.out.println("Update Course.");
                         System.out.println("Enter Course ID: ");
                         String newCourseID = scan.nextLine();
-                        courseRegistration.updateCourse(new Course(newCourseID));
+                        campusRegistrar.updateCourse(new Course(newCourseID));
                         break;
 
                     case 4:
-                        courseRegistration.displayAll();
+                        campusRegistrar.displayAllCourses();
                         System.out.println("Remove Course.");
                         System.out.println("Enter Course ID: ");
                         String delCourseID = scan.nextLine();
-                        System.out.println(courseRegistration.removeCourse(new Course(delCourseID)));
+                        System.out.println(campusRegistrar.removeCourse(new Course(delCourseID)));
                         break;
 
                     default:
