@@ -3,42 +3,41 @@ package org.example.service;
 import org.example.model.Course;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class CourseRegistrationImpl implements CourseRegistration{
-    static Scanner scan = new Scanner(System.in);
-    private ArrayList<Course> courseList = new ArrayList<>();
+    private List<Course> courseList = new ArrayList<>();
 
-    public void saveCourse(Course course){
-        courseList.add(course);
+    public void saveCourse(String courseID, String name, String program){
+        courseList.add(new Course(courseID, name, program));
     }
 
     public void displayAllCourses(){
         System.out.println(courseList);
     }
 
-    public void updateCourse(Course course){
+    public boolean updateCourse(String courseID, String name, String program){
         for(int i = 0; i<courseList.size(); i++){
-            if(courseList.get(i).getCourseID().equals(course.getCourseID())){
-                System.out.println("Enter name: ");
-                String name = scan.nextLine();
-
-                System.out.println("Enter program: ");
-                String program = scan.nextLine();
-
-                courseList.set(i, new Course(course.getCourseID(), name, program));
-                break;
+            if(courseList.get(i).getCourseID().equals(courseID)){
+                courseList.set(i, new Course(courseID, name, program));
+                return true;
             }
         }
+        return false;
     }
 
-    public String removeCourse(Course course){
+    public boolean removeCourse(String courseID){
         for(int i = 0; i<courseList.size(); i++){
-            if(courseList.get(i).getCourseID().equals(course.getCourseID())){
+            if(courseList.get(i).getCourseID().equals(courseID)){
                 courseList.remove(i);
-                return "Successfully Deleted";
+                return true;
             }
         }
-        return "Error.";
+        return false;
+    }
+
+    public List<Course> getCourseList() {
+        return courseList;
     }
 }

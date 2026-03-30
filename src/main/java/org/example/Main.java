@@ -1,6 +1,5 @@
 package org.example;
 
-import org.example.model.*;
 import org.example.service.CampusRegistrar;
 import org.example.service.CourseRegistrationImpl;
 import org.example.service.StudentRegistrationImpl;
@@ -10,15 +9,8 @@ import java.util.Scanner;
 public class Main{
     static Scanner scan = new Scanner(System.in);
     public static void main(String[] args) {
-        Student student = new Student();
-        student.mainTask();
-        
-        Instructor instructor = new Instructor();
-        instructor.mainTask();
-
         StudentRegistrationImpl studentRegistration = new StudentRegistrationImpl();
         CourseRegistrationImpl courseRegistration = new CourseRegistrationImpl();
-
         CampusRegistrar campusRegistrar = new CampusRegistrar(studentRegistration, courseRegistration);
 
         //interactive
@@ -53,7 +45,7 @@ public class Main{
                         System.out.println("Enter Program: ");
                         String studProgram = scan.nextLine();
 
-                        campusRegistrar.saveStudent(new Student(studID, studName, studProgram));
+                        System.out.println(campusRegistrar.saveStudent(studID, studName, studProgram));
                         break;
 
                     case 2:
@@ -65,7 +57,11 @@ public class Main{
                         System.out.println("Update Student.");
                         System.out.println("Enter Student ID: ");
                         String newStudID = scan.nextLine();
-                        campusRegistrar.updateStudent(new Student(newStudID));
+                        System.out.println("Enter name: ");
+                        String newName = scan.nextLine();
+                        System.out.println("Enter program: ");
+                        String newProgram = scan.nextLine();
+                        System.out.println(campusRegistrar.updateStudent(newStudID, newName, newProgram));
                         break;
 
                     case 4:
@@ -73,7 +69,7 @@ public class Main{
                         System.out.println("Remove Student.");
                         System.out.println("Enter Student ID: ");
                         String delStudID = scan.nextLine();
-                        System.out.println(campusRegistrar.removeStudent(new Student(delStudID)));
+                        System.out.println(campusRegistrar.removeStudent(delStudID));
                         break;
 
                     default:
@@ -105,7 +101,7 @@ public class Main{
                         System.out.println("Enter Program: ");
                         String courseProgram = scan.nextLine();
 
-                        campusRegistrar.saveCourse(new Course(courseID, courseName, courseProgram));
+                        System.out.println(campusRegistrar.saveCourse(courseID, courseName, courseProgram));
                         break;
 
                     case 2:
@@ -117,7 +113,11 @@ public class Main{
                         System.out.println("Update Course.");
                         System.out.println("Enter Course ID: ");
                         String newCourseID = scan.nextLine();
-                        campusRegistrar.updateCourse(new Course(newCourseID));
+                        System.out.println("Enter name: ");
+                        String newName = scan.nextLine();
+                        System.out.println("Enter program: ");
+                        String newProgram = scan.nextLine();
+                        System.out.println(campusRegistrar.updateCourse(newCourseID, newName, newProgram));
                         break;
 
                     case 4:
@@ -125,7 +125,7 @@ public class Main{
                         System.out.println("Remove Course.");
                         System.out.println("Enter Course ID: ");
                         String delCourseID = scan.nextLine();
-                        System.out.println(campusRegistrar.removeCourse(new Course(delCourseID)));
+                        System.out.println(campusRegistrar.removeCourse(delCourseID));
                         break;
 
                     default:

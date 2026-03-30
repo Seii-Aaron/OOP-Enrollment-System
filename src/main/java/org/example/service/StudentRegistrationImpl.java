@@ -3,42 +3,41 @@ package org.example.service;
 import org.example.model.Student;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class StudentRegistrationImpl implements StudentRegistration{
-    static Scanner scan = new Scanner(System.in);
-    private ArrayList<Student> studentList = new ArrayList<>();
+    private List<Student> studentList = new ArrayList<>();
 
-    public void saveStudent(Student student){
-        studentList.add(student);
+    public void saveStudent(String studentID, String name, String program){
+        studentList.add(new Student(studentID, name, program));
     }
 
     public void displayAllStudent(){
         System.out.println(studentList);
     }
 
-    public void updateStudent(Student student){
+    public boolean updateStudent(String studentID, String name, String program){
         for(int i = 0; i< studentList.size(); i++){
-            if(studentList.get(i).getID().equals(student.getID())){
-                System.out.println("Enter name: ");
-                String name = scan.nextLine();
-
-                System.out.println("Enter program: ");
-                String program = scan.nextLine();
-
-                studentList.set(i, new Student(student.getID(), name, program));
-                break;
+            if(studentList.get(i).getID().equals(studentID)){
+                studentList.set(i, new Student(studentID, name, program));
+                return true;
             }
         }
+        return false;
     }
 
-    public String removeStudent(Student student){
+    public boolean removeStudent(String studentID){
         for(int i = 0; i< studentList.size(); i++){
-            if(studentList.get(i).getID().equals(student.getID())){
+            if(studentList.get(i).getID().equals(studentID)){
                 studentList.remove(i);
-                return "Successfully Deleted.";
+                return true;
             }
         }
-        return "Error.";
+        return false;
+    }
+
+    public List<Student> getStudentList() {
+        return studentList;
     }
 }

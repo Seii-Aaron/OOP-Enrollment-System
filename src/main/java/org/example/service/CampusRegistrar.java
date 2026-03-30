@@ -1,54 +1,65 @@
 package org.example.service;
 
-import org.example.model.Course;
-import org.example.model.Student;
-
 public class CampusRegistrar {
     private StudentRegistration studReg;
     private CourseRegistration courseReg;
 
     public CampusRegistrar(StudentRegistration studReg, CourseRegistration courseReg){
         this.studReg = studReg;
-        this.courseReg =courseReg;
+        this.courseReg = courseReg;
     }
 
-    public String saveCourse(Course course){
-        courseReg.saveCourse(course);
+    public String saveCourse(String courseID, String name, String program){
+        courseReg.saveCourse(courseID, name, program);
         return "Success";
     }
 
-    public String displayAllCourses(){
+    public void displayAllCourses(){
         courseReg.displayAllCourses();
+    }
+
+    public String updateCourse(String courseID, String name, String program){
+        boolean result = courseReg.updateCourse(courseID, name, program);
+        if (result){
+            return "Success";
+        } else {
+            return "Failed to update course. Please double check the course ID.";
+        }
+    }
+
+    public String removeCourse(String courseID){
+        boolean result = courseReg.removeCourse(courseID);
+        if (result){
+            return "Success";
+        } else {
+            return "Failed to remove course. Please double check the course ID.";
+        }
+    }
+
+    public String saveStudent(String studentID, String name, String program){
+        studReg.saveStudent(studentID, name, program);
         return "Success";
     }
 
-    public String updateCourse(Course course){
-        courseReg.updateCourse(course);
-        return "Success";
-    }
-
-    public String removeCourse(Course course){
-        courseReg.removeCourse(course);
-        return "Success";
-    }
-
-    public String saveStudent(Student student){
-        studReg.saveStudent(student);
-        return "Success";
-    }
-
-    public String displayAllStudent(){
+    public void displayAllStudent(){
         studReg.displayAllStudent();
-        return "Success";
     }
 
-    public String updateStudent(Student student){
-        studReg.updateStudent(student);
-        return "Success";
+    public String updateStudent(String studentID, String name, String program){
+        boolean result = studReg.updateStudent(studentID, name, program);
+        if (result){
+            return "Success";
+        } else {
+            return "Failed to update course. Please double check the course ID.";
+        }
     }
 
-    public String removeStudent(Student student){
-        studReg.removeStudent(student);
-        return "Success";
+    public String removeStudent(String studentID){
+        boolean result = studReg.removeStudent(studentID);
+        if (result){
+            return "Success";
+        } else {
+            return "Failed to remove course. Please double check the course ID.";
+        }
     }
 }

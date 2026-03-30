@@ -2,9 +2,12 @@ package org.example.service;
 
 import org.example.model.Course;
 
+import java.util.List;
+
 public interface CourseRegistration {
-    void saveCourse(Course course);
+    void saveCourse(String courseID, String name, String program);
     void displayAllCourses();
-    void updateCourse(Course course);
-    String removeCourse(Course course);
+    boolean updateCourse(String courseID, String name, String program);
+    boolean removeCourse(String courseID);
+    List<Course> getCourseList();
 }
