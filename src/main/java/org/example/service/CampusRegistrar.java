@@ -14,8 +14,9 @@ public class CampusRegistrar {
         return "Success";
     }
 
-    public void displayAllCourses(){
+    public String displayAllCourses(){
         courseReg.displayAllCourses();
+        return "Success";
     }
 
     public String updateCourse(String courseID, String name, String program){
@@ -41,8 +42,9 @@ public class CampusRegistrar {
         return "Success";
     }
 
-    public void displayAllStudent(){
+    public String displayAllStudent(){
         studReg.displayAllStudent();
+        return "Success";
     }
 
     public String updateStudent(String studentID, String name, String program){
@@ -50,7 +52,7 @@ public class CampusRegistrar {
         if (result){
             return "Success";
         } else {
-            return "Failed to update course. Please double check the course ID.";
+            return "Failed to update student. Please double check the student ID.";
         }
     }
 
@@ -59,7 +61,7 @@ public class CampusRegistrar {
         if (result){
             return "Success";
         } else {
-            return "Failed to remove course. Please double check the course ID.";
+            return "Failed to remove student. Please double check the student ID.";
         }
     }
 }
