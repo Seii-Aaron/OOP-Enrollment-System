@@ -1,7 +1,5 @@
 package org.example.service;
 
-import org.example.model.Course;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -21,6 +19,7 @@ class CampusRegistrarTest {
     @InjectMocks
     private CampusRegistrar campusRegistrar;
 
+    //Testing for Course Registration
     @Test
     void shouldSaveANewCourse() {
         String result = campusRegistrar.saveCourse("123", "Prog", "BSIT");
@@ -36,29 +35,37 @@ class CampusRegistrarTest {
     }
 
     @Test
-    void shouldUpdateACourse() {
+    void shouldPassUpdatingACourse() {
         when(courseReg.updateCourse("123", "InteProg", "IT")).thenReturn(true);
         String positive = campusRegistrar.updateCourse("123", "InteProg", "IT");
         assertEquals("Success", positive);
         verify(courseReg).updateCourse("123", "InteProg", "IT");
+    }
 
+    @Test
+    void shouldFailUpdatingACourse() {
         String negative = campusRegistrar.updateCourse("124", "InteProg", "IT");
-        assertEquals("Failed to update course. Please double check the course ID.", negative);
+        assertEquals("Failed to update course. Please double-check the course ID.", negative);
         verify(courseReg).updateCourse("124", "InteProg", "IT");
     }
 
     @Test
-    void shouldRemoveACourse() {
+    void shouldPassRemovingACourse() {
         when(courseReg.removeCourse("123")).thenReturn(true);
         String positive = campusRegistrar.removeCourse("123");
         assertEquals("Success", positive);
         verify(courseReg).removeCourse("123");
+    }
 
+    @Test
+    void shouldFailRemovingACourse() {
         String negative = campusRegistrar.removeCourse("124");
-        assertEquals("Failed to remove course. Please double check the course ID.", negative);
+        assertEquals("Failed to remove course. Please double-check the course ID.", negative);
         verify(courseReg).removeCourse("124");
     }
 
+
+    //Testing for Student Registration
     @Test
     void shouldSaveANewStudent() {
         String result = campusRegistrar.saveStudent("123", "Joseph", "BSIT");
@@ -74,26 +81,32 @@ class CampusRegistrarTest {
     }
 
     @Test
-    void shouldUpdateAStudent() {
+    void shouldPassUpdatingAStudent() {
         when(studReg.updateStudent("123", "John", "BSCS")).thenReturn(true);
         String positive = campusRegistrar.updateStudent("123", "John", "BSCS");
         assertEquals("Success", positive);
         verify(studReg).updateStudent("123", "John", "BSCS");
+    }
 
+    @Test
+    void shouldFailUpdatingAStudent() {
         String negative = campusRegistrar.updateStudent("124", "John", "BSCS");
-        assertEquals("Failed to update student. Please double check the student ID.", negative);
+        assertEquals("Failed to update student. Please double-check the student ID.", negative);
         verify(studReg).updateStudent("124", "John", "BSCS");
     }
 
     @Test
-    void shouldRemoveAStudent() {
+    void shouldPassRemovingAStudent() {
         when(studReg.removeStudent("123")).thenReturn(true);
         String positive = campusRegistrar.removeStudent("123");
         assertEquals("Success", positive);
         verify(studReg).removeStudent("123");
+    }
 
+    @Test
+    void shouldFailRemovingAStudent() {
         String negative = campusRegistrar.removeStudent("124");
-        assertEquals("Failed to remove student. Please double check the student ID.", negative);
+        assertEquals("Failed to remove student. Please double-check the student ID.", negative);
         verify(studReg).removeStudent("124");
     }
 }

@@ -13,8 +13,9 @@ public class StudentRegistrationImpl implements StudentRegistration{
         studentList.add(new Student(studentID, name, program));
     }
 
-    public void displayAllStudent(){
+    public boolean displayAllStudent(){
         System.out.println(studentList);
+        return true;
     }
 
     public boolean updateStudent(String studentID, String name, String program){

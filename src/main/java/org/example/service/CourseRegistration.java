@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface CourseRegistration {
     void saveCourse(String courseID, String name, String program);
-    void displayAllCourses();
+    boolean displayAllCourses();
     boolean updateCourse(String courseID, String name, String program);
     boolean removeCourse(String courseID);
     List<Course> getCourseList();

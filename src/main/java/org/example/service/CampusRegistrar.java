@@ -24,7 +24,7 @@ public class CampusRegistrar {
         if (result){
             return "Success";
         } else {
-            return "Failed to update course. Please double check the course ID.";
+            return "Failed to update course. Please double-check the course ID.";
         }
     }
 
@@ -33,7 +33,7 @@ public class CampusRegistrar {
         if (result){
             return "Success";
         } else {
-            return "Failed to remove course. Please double check the course ID.";
+            return "Failed to remove course. Please double-check the course ID.";
         }
     }
 
@@ -52,7 +52,7 @@ public class CampusRegistrar {
         if (result){
             return "Success";
         } else {
-            return "Failed to update student. Please double check the student ID.";
+            return "Failed to update student. Please double-check the student ID.";
         }
     }
 
@@ -61,7 +61,7 @@ public class CampusRegistrar {
         if (result){
             return "Success";
         } else {
-            return "Failed to remove student. Please double check the student ID.";
+            return "Failed to remove student. Please double-check the student ID.";
         }
     }
 }

@@ -13,8 +13,9 @@ public class CourseRegistrationImpl implements CourseRegistration{
         courseList.add(new Course(courseID, name, program));
     }
 
-    public void displayAllCourses(){
+    public boolean displayAllCourses(){
         System.out.println(courseList);
+        return true;
     }
 
     public boolean updateCourse(String courseID, String name, String program){
