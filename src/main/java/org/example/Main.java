@@ -9,9 +9,7 @@ import java.util.Scanner;
 public class Main{
     static Scanner scan = new Scanner(System.in);
     public static void main(String[] args) {
-        StudentRegistrationImpl studentRegistration = new StudentRegistrationImpl();
-        CourseRegistrationImpl courseRegistration = new CourseRegistrationImpl();
-        CampusRegistrar campusRegistrar = new CampusRegistrar(studentRegistration, courseRegistration);
+        CampusRegistrar campusRegistrar = new CampusRegistrar(new StudentRegistrationImpl(), new CourseRegistrationImpl());
 
         //interactive
         while (true){

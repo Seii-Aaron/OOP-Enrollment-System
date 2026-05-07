@@ -4,7 +4,6 @@ import org.example.model.Student;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
 public class StudentRegistrationImpl implements StudentRegistration{
     private List<Student> studentList = new ArrayList<>();
