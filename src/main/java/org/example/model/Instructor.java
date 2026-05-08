@@ -1,7 +1,10 @@
 package org.example.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Instructor extends Person{
-    private String course;
+    private List<Course> coursesHandled = new ArrayList<>();
 
     public Instructor(){
         super();
@@ -15,17 +18,22 @@ public class Instructor extends Person{
         super(instructorID, instructorName);
     }
 
-    public Instructor(String instructorID, String instructorName, String course){
+    public Instructor(String instructorID, String instructorName, Course course){
         super(instructorID, instructorName);
-        this.course = course;
+        this.coursesHandled.add(course);
     }
 
-    public String getCourse(){
-        return course;
+    public boolean displayCoursesHandled(){
+        System.out.println(coursesHandled);
+        return true;
     }
 
-    public void setCourse(String course){
-        this.course = course;
+    public void addCourse(Course course){
+        this.coursesHandled.add(course);
+    }
+
+    public List<Course> getCoursesHandled(){
+        return coursesHandled;
     }
 
     @Override
@@ -38,7 +46,7 @@ public class Instructor extends Person{
         return "Instructor{" +
                 "instructorID=" + super.getID() +
                 "instructorName=" + super.getName() +
-                "course='" + course + '\'' +
+                "courses='" + coursesHandled.toString() + '\'' +
                 '}';
     }
 }

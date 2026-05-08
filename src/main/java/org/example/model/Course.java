@@ -8,9 +8,16 @@ public class Course {
     public Course(){
 
     }
+
     public Course(String courseID){
         this.courseID = courseID;
     }
+
+    public Course(String courseID, String courseName){
+        this.courseID = courseID;
+        this.courseName = courseName;
+    }
+
     public Course(String courseID, String courseName, String program){
         this.courseID = courseID;
         this.courseName = courseName;
@@ -40,10 +47,10 @@ public class Course {
 
     @Override
     public String toString() {
-        return "Course{" +
+        return "\nCourse { " +
                 "courseID='" + courseID + '\'' +
                 ", courseName='" + courseName + '\'' +
                 ", program='" + program + '\'' +
-                '}';
+                " } ";
     }
 }
