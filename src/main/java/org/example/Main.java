@@ -11,147 +11,137 @@ import java.util.Scanner;
 public class Main{
     static Scanner scan = new Scanner(System.in);
     public static void main(String[] args) {
-        Course abc = new Course("1", "inteprog", "bsit");
-        Course a123 = new Course("2");
-        Instructor a = new Instructor("123", "jusip", abc);
-        a.addCourse(a123);
+        CampusRegistrar campusRegistrar = new CampusRegistrar(new StudentRegistrationImpl(), new CourseRegistrationImpl());
 
-        a.displayCoursesHandled();
+        //interactive
+        while (true){
+            System.out.print("\nPick a number.\n" +
+                    "1. Student Registration\n" +
+                    "2. Course Registration\n" +
+                    "3. Exit\n" +
+                    "Answer: ");
+
+            int num1 = scan.nextInt();
+
+            if (num1 == 1){
+                System.out.print("\nStudent Registration:\n" +
+                        "Pick a number.\n" +
+                        "1. Save Student\n" +
+                        "2. Display Student\n" +
+                        "3. Update Student\n" +
+                        "4. Remove Student\n" +
+                        "Answer: ");
+                int srNum = scan.nextInt();
+                scan.nextLine();
+                switch(srNum){
+                    case 1:
+                        System.out.println("\nSave Student.");
+                        System.out.println("Enter Student ID: ");
+                        String studID = scan.nextLine();
+
+                        System.out.println("Enter Student Name: ");
+                        String studName = scan.nextLine();
+
+                        System.out.println("Enter Program: ");
+                        String studProgram = scan.nextLine();
+
+                        System.out.println(campusRegistrar.saveStudent(studID, studName, studProgram));
+                        break;
+
+                    case 2:
+                        campusRegistrar.displayAllStudent();
+                        break;
+
+                    case 3:
+                        campusRegistrar.displayAllStudent();
+                        System.out.println("Update Student.");
+                        System.out.println("Enter Student ID: ");
+                        String newStudID = scan.nextLine();
+                        System.out.println("Enter name: ");
+                        String newName = scan.nextLine();
+                        System.out.println("Enter program: ");
+                        String newProgram = scan.nextLine();
+                        System.out.println(campusRegistrar.updateStudent(newStudID, newName, newProgram));
+                        break;
+
+                    case 4:
+                        campusRegistrar.displayAllStudent();
+                        System.out.println("Remove Student.");
+                        System.out.println("Enter Student ID: ");
+                        String delStudID = scan.nextLine();
+                        System.out.println(campusRegistrar.removeStudent(delStudID));
+                        break;
+
+                    default:
+                        System.out.println("Error.");
+                        break;
+                }
 
 
 
+            } else if (num1 == 2){
+                System.out.print("\nCourse Registration:\n" +
+                        "Pick a number.\n" +
+                        "1. Save Course\n" +
+                        "2. Display Course\n" +
+                        "3. Update Course\n" +
+                        "4. Remove Course\n" +
+                        "Answer: ");
+                int crNum = scan.nextInt();
+                scan.nextLine();
+                switch(crNum){
+                    case 1:
+                        System.out.println("\nSave Course.");
+                        System.out.println("Enter Course ID: ");
+                        String courseID = scan.nextLine();
 
-//        CampusRegistrar campusRegistrar = new CampusRegistrar(new StudentRegistrationImpl(), new CourseRegistrationImpl());
-//
-//        //interactive
-//        while (true){
-//            System.out.print("\nPick a number.\n" +
-//                    "1. Student Registration\n" +
-//                    "2. Course Registration\n" +
-//                    "3. Exit\n" +
-//                    "Answer: ");
-//
-//            int num1 = scan.nextInt();
-//
-//            if (num1 == 1){
-//                System.out.print("\nStudent Registration:\n" +
-//                        "Pick a number.\n" +
-//                        "1. Save Student\n" +
-//                        "2. Display Student\n" +
-//                        "3. Update Student\n" +
-//                        "4. Remove Student\n" +
-//                        "Answer: ");
-//                int srNum = scan.nextInt();
-//                scan.nextLine();
-//                switch(srNum){
-//                    case 1:
-//                        System.out.println("\nSave Student.");
-//                        System.out.println("Enter Student ID: ");
-//                        String studID = scan.nextLine();
-//
-//                        System.out.println("Enter Student Name: ");
-//                        String studName = scan.nextLine();
-//
-//                        System.out.println("Enter Program: ");
-//                        String studProgram = scan.nextLine();
-//
-//                        System.out.println(campusRegistrar.saveStudent(studID, studName, studProgram));
-//                        break;
-//
-//                    case 2:
-//                        campusRegistrar.displayAllStudent();
-//                        break;
-//
-//                    case 3:
-//                        campusRegistrar.displayAllStudent();
-//                        System.out.println("Update Student.");
-//                        System.out.println("Enter Student ID: ");
-//                        String newStudID = scan.nextLine();
-//                        System.out.println("Enter name: ");
-//                        String newName = scan.nextLine();
-//                        System.out.println("Enter program: ");
-//                        String newProgram = scan.nextLine();
-//                        System.out.println(campusRegistrar.updateStudent(newStudID, newName, newProgram));
-//                        break;
-//
-//                    case 4:
-//                        campusRegistrar.displayAllStudent();
-//                        System.out.println("Remove Student.");
-//                        System.out.println("Enter Student ID: ");
-//                        String delStudID = scan.nextLine();
-//                        System.out.println(campusRegistrar.removeStudent(delStudID));
-//                        break;
-//
-//                    default:
-//                        System.out.println("Error.");
-//                        break;
-//                }
-//
-//
-//
-//            } else if (num1 == 2){
-//                System.out.print("\nCourse Registration:\n" +
-//                        "Pick a number.\n" +
-//                        "1. Save Course\n" +
-//                        "2. Display Course\n" +
-//                        "3. Update Course\n" +
-//                        "4. Remove Course\n" +
-//                        "Answer: ");
-//                int crNum = scan.nextInt();
-//                scan.nextLine();
-//                switch(crNum){
-//                    case 1:
-//                        System.out.println("\nSave Course.");
-//                        System.out.println("Enter Course ID: ");
-//                        String courseID = scan.nextLine();
-//
-//                        System.out.println("Enter Course Name: ");
-//                        String courseName = scan.nextLine();
-//
-//                        System.out.println("Enter Program: ");
-//                        String courseProgram = scan.nextLine();
-//
-//                        System.out.println(campusRegistrar.saveCourse(courseID, courseName, courseProgram));
-//                        break;
-//
-//                    case 2:
-//                        campusRegistrar.displayAllCourses();
-//                        break;
-//
-//                    case 3:
-//                        campusRegistrar.displayAllCourses();
-//                        System.out.println("Update Course.");
-//                        System.out.println("Enter Course ID: ");
-//                        String newCourseID = scan.nextLine();
-//                        System.out.println("Enter name: ");
-//                        String newName = scan.nextLine();
-//                        System.out.println("Enter program: ");
-//                        String newProgram = scan.nextLine();
-//                        System.out.println(campusRegistrar.updateCourse(newCourseID, newName, newProgram));
-//                        break;
-//
-//                    case 4:
-//                        campusRegistrar.displayAllCourses();
-//                        System.out.println("Remove Course.");
-//                        System.out.println("Enter Course ID: ");
-//                        String delCourseID = scan.nextLine();
-//                        System.out.println(campusRegistrar.removeCourse(delCourseID));
-//                        break;
-//
-//                    default:
-//                        System.out.println("Error.");
-//                        break;
-//                }
-//
-//
-//            } else if (num1 == 3){
-//                System.exit(0);
-//
-//
-//            } else {
-//                System.out.println("Error.\n");
-//            }
-//        }
+                        System.out.println("Enter Course Name: ");
+                        String courseName = scan.nextLine();
+
+                        System.out.println("Enter Program: ");
+                        String courseProgram = scan.nextLine();
+
+                        System.out.println(campusRegistrar.saveCourse(courseID, courseName, courseProgram));
+                        break;
+
+                    case 2:
+                        campusRegistrar.displayAllCourses();
+                        break;
+
+                    case 3:
+                        campusRegistrar.displayAllCourses();
+                        System.out.println("Update Course.");
+                        System.out.println("Enter Course ID: ");
+                        String newCourseID = scan.nextLine();
+                        System.out.println("Enter name: ");
+                        String newName = scan.nextLine();
+                        System.out.println("Enter program: ");
+                        String newProgram = scan.nextLine();
+                        System.out.println(campusRegistrar.updateCourse(newCourseID, newName, newProgram));
+                        break;
+
+                    case 4:
+                        campusRegistrar.displayAllCourses();
+                        System.out.println("Remove Course.");
+                        System.out.println("Enter Course ID: ");
+                        String delCourseID = scan.nextLine();
+                        System.out.println(campusRegistrar.removeCourse(delCourseID));
+                        break;
+
+                    default:
+                        System.out.println("Error.");
+                        break;
+                }
+
+
+            } else if (num1 == 3){
+                System.exit(0);
+
+
+            } else {
+                System.out.println("Error.\n");
+            }
+        }
 
     }
 }
