@@ -47,4 +47,15 @@ public class Department {
     public List<Instructor> getDeptInstructorList() {
         return deptInstructorList;
     }
+
+
+    @Override
+    public String toString() {
+        return "\nDepartment { " +
+                "departmentID='" + departmentID + '\'' +
+                ", departmentName='" + departmentName + '\'' +
+                ", deptProgramList=" + deptProgramList +
+                ", deptInstructorList=" + deptInstructorList +
+                " } ";
+    }
 }
