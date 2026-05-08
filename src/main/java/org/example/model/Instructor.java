@@ -43,10 +43,10 @@ public class Instructor extends Person{
 
     @Override
     public String toString() {
-        return "Instructor{" +
+        return "\n Instructor { " +
                 "instructorID=" + super.getID() +
                 "instructorName=" + super.getName() +
                 "courses='" + coursesHandled.toString() + '\'' +
-                '}';
+                " } ";
     }
 }
