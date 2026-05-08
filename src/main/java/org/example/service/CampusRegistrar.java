@@ -1,5 +1,7 @@
 package org.example.service;
 
+import org.example.model.Program;
+
 public class CampusRegistrar {
     private StudentRegistration studReg;
     private CourseRegistration courseReg;
@@ -37,8 +39,8 @@ public class CampusRegistrar {
         }
     }
 
-    public String saveStudent(String studentID, String name, String program){
-        studReg.saveStudent(studentID, name, program);
+    public String saveStudent(String studentID, String name){
+        studReg.saveStudent(studentID, name);
         return "Success";
     }
 
@@ -47,8 +49,8 @@ public class CampusRegistrar {
         return "Success";
     }
 
-    public String updateStudent(String studentID, String name, String program){
-        boolean result = studReg.updateStudent(studentID, name, program);
+    public String updateStudent(String studentID, String name){
+        boolean result = studReg.updateStudent(studentID, name);
         if (result){
             return "Success";
         } else {

@@ -42,10 +42,7 @@ public class Main{
                         System.out.println("Enter Student Name: ");
                         String studName = scan.nextLine();
 
-                        System.out.println("Enter Program: ");
-                        String studProgram = scan.nextLine();
-
-                        System.out.println(campusRegistrar.saveStudent(studID, studName, studProgram));
+                        System.out.println(campusRegistrar.saveStudent(studID, studName));
                         break;
 
                     case 2:
@@ -59,9 +56,7 @@ public class Main{
                         String newStudID = scan.nextLine();
                         System.out.println("Enter name: ");
                         String newName = scan.nextLine();
-                        System.out.println("Enter program: ");
-                        String newProgram = scan.nextLine();
-                        System.out.println(campusRegistrar.updateStudent(newStudID, newName, newProgram));
+                        System.out.println(campusRegistrar.updateStudent(newStudID, newName));
                         break;
 
                     case 4:
