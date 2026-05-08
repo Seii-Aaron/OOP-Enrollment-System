@@ -32,6 +32,16 @@ public class Instructor extends Person{
         this.coursesHandled.add(course);
     }
 
+    public boolean removeCourse(Course course){
+        for(int i = 0; i<coursesHandled.size(); i++){
+            if(coursesHandled.get(i).getCourseID().equals(course.getCourseID())){
+                coursesHandled.remove(i);
+                return true;
+            }
+        }
+        return false;
+    }
+
     public List<Course> getCoursesHandled(){
         return coursesHandled;
     }
