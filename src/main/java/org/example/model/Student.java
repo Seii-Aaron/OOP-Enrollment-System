@@ -35,10 +35,10 @@ public class Student extends Person{
 
     @Override
     public String toString() {
-        return "Student{" +
+        return "\nStudent { " +
                 "studentID='" + super.getID() + '\'' +
                 ", studentName='" + super.getName() + '\'' +
                 ", program='" + program + '\'' +
-                '}';
+                " } ";
     }
 }
