@@ -1,6 +1,7 @@
 package org.example.service;
 
 import org.example.model.Course;
+import org.example.model.Program;
 import org.example.model.Section;
 
 import java.util.ArrayList;
@@ -9,7 +10,7 @@ import java.util.List;
 public class SectionRegistrationImpl {
     private List<Section> sectionList = new ArrayList<>();
 
-    public void saveSection(String sectionID, String sectionName, String program){
+    public void saveSection(String sectionID, String sectionName, Program program){
         sectionList.add(new Section(sectionID, sectionName, program));
     }
 
@@ -18,7 +19,7 @@ public class SectionRegistrationImpl {
         return true;
     }
 
-    public boolean updateSection(String sectionID, String sectionName, String program){
+    public boolean updateSection(String sectionID, String sectionName, Program program){
         for(int i = 0; i<sectionList.size(); i++){
             if(sectionList.get(i).getSectionID().equals(sectionID)){
                 sectionList.set(i, new Section(sectionID, sectionName, program));

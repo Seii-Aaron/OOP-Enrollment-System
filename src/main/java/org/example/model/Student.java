@@ -1,7 +1,8 @@
 package org.example.model;
 
 public class Student extends Person{
-    private String program;
+    private Program program = new Program("NULL", "NULL");
+    private Section section;
 
     public Student(){
         super();
@@ -15,16 +16,16 @@ public class Student extends Person{
         super(studentID, studentName);
     }
 
-    public Student(String studentID, String studentName, String program){
+    public Student(String studentID, String studentName, Program program){
         super(studentID, studentName);
         this.program = program;
     }
 
-    public String getProgram(){
-        return program;
+    public String getProgramName(){
+        return this.program.getProgramName();
     }
 
-    public void setProgram(String program){
+    public void setProgram(Program program){
         this.program = program;
     }
 

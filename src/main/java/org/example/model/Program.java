@@ -7,6 +7,7 @@ public class Program {
     private String programID;
     private String programName;
 
+    private Department department;
     private List<Course> progCourseList = new ArrayList<>();
     private List<Section> progSectionList = new ArrayList<>();
 
@@ -23,6 +24,11 @@ public class Program {
         this.programName = programName;
     }
 
+    public Program(String programID, String programName, Department department) {
+        this.programID = programID;
+        this.programName = programName;
+        this.department = department;
+    }
 
     public String getProgramID() {
         return programID;
@@ -40,6 +46,13 @@ public class Program {
         this.programName = programName;
     }
 
+    public String getDepartmentName() {
+        return this.department.getDepartmentName();
+    }
+
+    public void setDepartment(Department department) {
+        this.department = department;
+    }
 
     public List<Course> getProgCourseList() {
         return progCourseList;

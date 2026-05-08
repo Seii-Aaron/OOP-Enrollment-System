@@ -68,9 +68,9 @@ class CampusRegistrarTest {
     //Testing for Student Registration
     @Test
     void shouldSaveANewStudent() {
-        String result = campusRegistrar.saveStudent("123", "Joseph", "BSIT");
+        String result = campusRegistrar.saveStudent("123", "Joseph");
         assertEquals("Success", result);
-        verify(studReg).saveStudent("123", "Joseph", "BSIT");
+        verify(studReg).saveStudent("123", "Joseph");
     }
 
     @Test
@@ -82,17 +82,17 @@ class CampusRegistrarTest {
 
     @Test
     void shouldPassUpdatingAStudent() {
-        when(studReg.updateStudent("123", "John", "BSCS")).thenReturn(true);
-        String positive = campusRegistrar.updateStudent("123", "John", "BSCS");
+        when(studReg.updateStudent("123", "John")).thenReturn(true);
+        String positive = campusRegistrar.updateStudent("123", "John");
         assertEquals("Success", positive);
-        verify(studReg).updateStudent("123", "John", "BSCS");
+        verify(studReg).updateStudent("123", "John");
     }
 
     @Test
     void shouldFailUpdatingAStudent() {
-        String negative = campusRegistrar.updateStudent("124", "John", "BSCS");
+        String negative = campusRegistrar.updateStudent("124", "John");
         assertEquals("Failed to update student. Please double-check the student ID.", negative);
-        verify(studReg).updateStudent("124", "John", "BSCS");
+        verify(studReg).updateStudent("124", "John");
     }
 
     @Test

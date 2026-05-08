@@ -1,9 +1,14 @@
 package org.example.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Section {
     private String sectionID;
     private String sectionName;
-    private String program;
+    private Program program;
+
+    private List<Student> sectionStudentList = new ArrayList<>();
 
     public Section(){
 
@@ -18,7 +23,7 @@ public class Section {
         this.sectionName = sectionName;
     }
 
-    public Section(String sectionID, String sectionName, String program){
+    public Section(String sectionID, String sectionName, Program program){
         this.sectionID = sectionID;
         this.sectionName = sectionName;
         this.program = program;
@@ -38,10 +43,10 @@ public class Section {
         this.sectionName = sectionName;
     }
 
-    public String getProgram() {
-        return program;
+    public Program getProgramName() {
+        return this.getProgramName();
     }
-    public void setProgram(String program) {
+    public void setProgram(Program program) {
         this.program = program;
     }
 
