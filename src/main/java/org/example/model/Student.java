@@ -1,8 +1,12 @@
 package org.example.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Student extends Person{
     private Program program = new Program("NULL", "NULL");
     private Section section;
+    private List<Payment> payments = new ArrayList<>();
 
     public Student(){
         super();
