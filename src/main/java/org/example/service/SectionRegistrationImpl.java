@@ -39,6 +39,21 @@ public class SectionRegistrationImpl {
         return false;
     }
 
+    public boolean setProgramToSection(Program program, Section section){
+        for(int i = 0; i<sectionList.size(); i++){
+            if(sectionList.get(i).getSectionID().equals(section.getSectionID())){
+                sectionList.get(i).setProgram(program);
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean displaySectionProgram(Section section){
+        System.out.println(section.getProgramName());
+        return true;
+    }
+
     public List<Section> getSectionList(){
         return sectionList;
     }

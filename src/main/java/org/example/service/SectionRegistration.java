@@ -10,5 +10,7 @@ public interface SectionRegistration {
     boolean displayAllSections();
     boolean updateSection(String sectionID, String sectionName, Program program);
     boolean removeSection(String sectionID);
+    boolean setProgramToSection(Program program, Section section);
+    boolean displaySectionProgram(Section section);
     List<Section> getSectionList();
 }

@@ -154,5 +154,51 @@ public class HumanResources {
         return instructorReg.getInstructorList();
     }
 
+    public String saveProgram(String programID, String programName){
+        programReg.saveProgram(programID, programName);
+        return "Success";
+    }
+
+    public String displayAllPrograms(){
+        programReg.displayAllPrograms();
+        return "Success";
+    }
+
+    public String updateProgram(String programID, String programName){
+        boolean result = programReg.updateProgram(programID, programName);
+        if(result){
+            return "Success";
+        } else {
+            return "Failed updating program.";
+        }
+    }
+
+    public String removeProgram(String programID){
+        boolean result = programReg.removeProgram(programID);
+        if(result){
+            return "Success";
+        } else {
+            return "Failed removing program.";
+        }
+    }
+
+    public String setProgramDepartment(Department department, Program program){
+        boolean result = programReg.setProgramDepartment(department, program);
+        if(result){
+            return "Success";
+        } else {
+            return "Failed setting department to program.";
+        }
+    }
+
+    public String displayProgramDepartment(Program program){
+        boolean result = programReg.displayProgramDepartment(program);
+        return "Success";
+    }
+
+    public List<Program> getProgramList(){
+        return programReg.getProgramList();
+    }
+
 
 }
