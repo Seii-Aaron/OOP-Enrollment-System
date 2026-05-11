@@ -39,6 +39,16 @@ public class CourseRegistrationImpl implements CourseRegistration{
         return false;
     }
 
+    public boolean setCourseProgram(String courseID, Program program){
+        for(int i = 0; i<courseList.size(); i++){
+            if(courseList.get(i).getCourseID().equals(courseID)){
+                courseList.get(i).setProgram(program);
+                return true;
+            }
+        }
+        return false;
+    }
+
     public List<Course> getCourseList() {
         return courseList;
     }

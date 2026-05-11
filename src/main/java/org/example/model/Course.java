@@ -3,7 +3,7 @@ package org.example.model;
 public class Course {
     private String courseID;
     private String courseName;
-    private Program program;
+    private Program program = new Program("NULL", "NULL");
 
     public Course(){
 
@@ -50,7 +50,7 @@ public class Course {
         return "\nCourse { " +
                 "courseID='" + courseID + '\'' +
                 ", courseName='" + courseName + '\'' +
-                ", program='" + program + '\'' +
+                ", program='" + program.getProgramName() + '\'' +
                 " } ";
     }
 }

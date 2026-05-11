@@ -2,7 +2,7 @@ package org.example.model;
 
 public class Payment {
     private String paymentID;
-    private Student student;
+    private Student student = new Student("NULL", "NULL");
     private double balance;
     private int units;
     private boolean isPaid;

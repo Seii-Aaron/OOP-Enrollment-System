@@ -7,7 +7,7 @@ public class Program {
     private String programID;
     private String programName;
 
-    private Department department;
+    private Department department = new Department("NULL", "NULL");
     private List<Course> progCourseList = new ArrayList<>();
     private List<Section> progSectionList = new ArrayList<>();
 

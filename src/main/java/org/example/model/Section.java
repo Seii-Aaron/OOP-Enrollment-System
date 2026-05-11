@@ -6,7 +6,7 @@ import java.util.List;
 public class Section {
     private String sectionID;
     private String sectionName;
-    private Program program;
+    private Program program = new Program("NULL", "NULL");
 
     private List<Student> sectionStudentList = new ArrayList<>();
 
