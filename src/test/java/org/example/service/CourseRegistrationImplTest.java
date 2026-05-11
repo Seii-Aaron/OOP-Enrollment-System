@@ -13,7 +13,7 @@ class CourseRegistrationImplTest {
 
     @Test
     void shouldSaveANewCourse() {
-        courseReg.saveCourse("123", "Math", "IT");
+        courseReg.saveCourse("123", "Math");
         assertEquals(1, courseReg.getCourseList().size());
     }
 
@@ -25,22 +25,22 @@ class CourseRegistrationImplTest {
 
     @Test
     void shouldPassUpdatingACourse() {
-        courseReg.saveCourse("123", "Math", "IT");
-        boolean updated = courseReg.updateCourse("123", "Science", "CS");
+        courseReg.saveCourse("123", "Math");
+        boolean updated = courseReg.updateCourse("123", "Science");
         assertTrue(updated);
-        assertEquals("CS", courseReg.getCourseList().get(0).getProgram());
+        assertEquals("Science", courseReg.getCourseList().get(0).getCourseName());
     }
 
     @Test
     void shouldFailUpdatingACourse() {
-        courseReg.saveCourse("123", "Math", "IT");
-        boolean updated = courseReg.updateCourse("12345", "Science", "CS");
+        courseReg.saveCourse("123", "Math");
+        boolean updated = courseReg.updateCourse("12345", "Science");
         assertFalse(updated);
     }
 
     @Test
     void shouldPassRemovingACourse() {
-        courseReg.saveCourse("123", "Math", "IT");
+        courseReg.saveCourse("123", "Math");
         boolean removed = courseReg.removeCourse("123");
         assertTrue(removed);
         assertEquals(0, courseReg.getCourseList().size());
@@ -48,7 +48,7 @@ class CourseRegistrationImplTest {
 
     @Test
     void shouldFailRemovingACourse() {
-        courseReg.saveCourse("123", "Math", "IT");
+        courseReg.saveCourse("123", "Math");
         boolean removed = courseReg.removeCourse("12345");
         assertFalse(removed);
         assertEquals(1, courseReg.getCourseList().size());
@@ -56,7 +56,7 @@ class CourseRegistrationImplTest {
 
     @Test
     void shouldGetCourseList() {
-        courseReg.saveCourse("123", "Math", "IT");
+        courseReg.saveCourse("123", "Math");
         assertEquals(1, courseReg.getCourseList().size());
     }
 }

@@ -56,6 +56,7 @@ public class TuitionServiceImpl implements TuitionService{
 
         return "Incorrect paymentID. Please try again.";
     }
+
     public boolean isFullyPaid(String paymentID){
         boolean isPaid = false;
         for(int i = 0; i < payments.size(); i++){

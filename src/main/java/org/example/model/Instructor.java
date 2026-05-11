@@ -5,6 +5,7 @@ import java.util.List;
 
 public class Instructor extends Person{
     private List<Course> coursesHandled = new ArrayList<>();
+    private Program program = new Program("NULL", "NULL");
 
     public Instructor(){
         super();
@@ -42,6 +43,14 @@ public class Instructor extends Person{
         return false;
     }
 
+    public String getProgramName() {
+        return this.program.getProgramName();
+    }
+
+    public void setProgram(Program program) {
+        this.program = program;
+    }
+
     public List<Course> getCoursesHandled(){
         return coursesHandled;
     }
@@ -56,6 +65,7 @@ public class Instructor extends Person{
         return "\n Instructor { " +
                 "instructorID=" + super.getID() +
                 "instructorName=" + super.getName() +
+                "program=" + this.getProgramName() +
                 "courses='" + coursesHandled.toString() + '\'' +
                 " } ";
     }

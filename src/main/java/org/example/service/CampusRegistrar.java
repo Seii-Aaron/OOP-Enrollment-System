@@ -1,42 +1,16 @@
 package org.example.service;
 
 import org.example.model.Program;
+import org.example.model.Section;
+import org.example.model.Student;
 
 public class CampusRegistrar {
     private StudentRegistration studReg;
-    private CourseRegistration courseReg;
+    private TuitionService tuitionService;
 
-    public CampusRegistrar(StudentRegistration studReg, CourseRegistration courseReg){
+    public CampusRegistrar(StudentRegistration studReg, TuitionService tuitionService){
         this.studReg = studReg;
-        this.courseReg = courseReg;
-    }
-
-    public String saveCourse(String courseID, String name, String program){
-        courseReg.saveCourse(courseID, name, program);
-        return "Success";
-    }
-
-    public String displayAllCourses(){
-        courseReg.displayAllCourses();
-        return "Success";
-    }
-
-    public String updateCourse(String courseID, String name, String program){
-        boolean result = courseReg.updateCourse(courseID, name, program);
-        if (result){
-            return "Success";
-        } else {
-            return "Failed to update course. Please double-check the course ID.";
-        }
-    }
-
-    public String removeCourse(String courseID){
-        boolean result = courseReg.removeCourse(courseID);
-        if (result){
-            return "Success";
-        } else {
-            return "Failed to remove course. Please double-check the course ID.";
-        }
+        this.tuitionService = tuitionService;
     }
 
     public String saveStudent(String studentID, String name){
@@ -64,6 +38,53 @@ public class CampusRegistrar {
             return "Success";
         } else {
             return "Failed to remove student. Please double-check the student ID.";
+        }
+    }
+
+    public String setStudentProgram(String studentID, Program program){
+        boolean result = studReg.setStudentProgram(studentID, program);
+        if (result) {
+            return "Success";
+        } else {
+            return "Failed to set the student's program.";
+        }
+    }
+    public String setStudentSection(String studentID, Section section){
+        boolean result = studReg.setStudentSection(studentID, section);
+        if (result) {
+            return "Success";
+        } else {
+            return "Failed to set the student's section.";
+        }
+    }
+
+
+    public String savePayment(String paymentID, Student student, double balance, int units, boolean isPaid){
+        tuitionService.savePayment(paymentID, student, balance, units, isPaid);
+        return "Success";
+    }
+
+    public String calculateTuitionFee(String paymentID, int units, double discountRate){
+        String calculatedFee = tuitionService.calculateTuitionFee(paymentID, units, discountRate);
+        return calculatedFee;
+    }
+
+    public String makePayment(String paymentID, double amount){
+        String payment = tuitionService.makePayment(paymentID, amount);
+        return payment;
+    }
+
+    public String getRemainingBalance(String paymentID){
+        String balance = tuitionService.getRemainingBalance(paymentID);
+        return balance;
+    }
+
+    public String isFullyPaid(String paymentID){
+        boolean isPaid = tuitionService.isFullyPaid(paymentID);
+        if(isPaid){
+            return "Balance is already paid.";
+        } else {
+            return "Balance is not yet fully paid.";
         }
     }
 }

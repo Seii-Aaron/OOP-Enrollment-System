@@ -1,6 +1,7 @@
 package org.example.service;
 
 import org.example.model.Course;
+import org.example.model.Department;
 import org.example.model.Program;
 
 import java.util.ArrayList;
@@ -36,6 +37,21 @@ public class ProgramRegistrationImpl {
             }
         }
         return false;
+    }
+
+    public boolean setProgramDepartment(Department department, Program program){
+        for(int i = 0; i<programList.size(); i++){
+            if(programList.get(i).getProgramID().equals(program.getProgramID())){
+                programList.get(i).setDepartment(department);
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean displayProgramDepartment(Program program){
+        System.out.println(program.getDepartmentName());
+        return true;
     }
 
     public List<Program> getProgramList(){
