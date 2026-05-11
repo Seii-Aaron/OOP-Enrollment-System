@@ -198,12 +198,8 @@ public class HumanResources {
     }
 
     public String saveSection(String sectionID, String sectionName){
-        boolean result = sectionReg.saveSection(sectionID, sectionName);
-        if(result){
-            return "Success";
-        } else {
-            return "Failed adding section. Section is full.";
-        }
+        sectionReg.saveSection(sectionID, sectionName);
+        return "Success";
     }
 
     public String displayAllSections(){

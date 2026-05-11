@@ -32,6 +32,8 @@ public class Main{
                         "2. Display Student\n" +
                         "3. Update Student\n" +
                         "4. Remove Student\n" +
+                        "5. Set Program of Student\n" +
+                        "6. Set Section of Student\n" +
                         "Answer: ");
                 int srNum = scan.nextInt();
                 scan.nextLine();
@@ -68,6 +70,14 @@ public class Main{
                         String delStudID = scan.nextLine();
                         System.out.println(campusRegistrar.removeStudent(delStudID));
                         break;
+
+                    case 5:
+                        campusRegistrar.displayAllStudent();
+                        System.out.println("Set Program to Student.");
+                        System.out.println("Enter Student ID: ");
+                        String StudID = scan.nextLine();
+                        System.out.println("");
+                        System.out.println(campusRegistrar.setStudentProgram(StudID, program));
 
                     default:
                         System.out.println("Error.");

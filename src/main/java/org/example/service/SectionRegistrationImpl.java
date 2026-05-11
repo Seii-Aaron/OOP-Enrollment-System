@@ -1,6 +1,5 @@
 package org.example.service;
 
-import org.example.model.Course;
 import org.example.model.Program;
 import org.example.model.Section;
 import org.example.model.Student;
@@ -11,13 +10,8 @@ import java.util.List;
 public class SectionRegistrationImpl implements SectionRegistration{
     private List<Section> sectionList = new ArrayList<>();
 
-    public boolean saveSection(String sectionID, String sectionName){
-        if(sectionList.size()<30){
-            sectionList.add(new Section(sectionID, sectionName));
-            return true;
-        } else {
-            return false;
-        }
+    public void saveSection(String sectionID, String sectionName){
+        sectionList.add(new Section(sectionID, sectionName));
     }
 
     public boolean displayAllSections(){
@@ -63,8 +57,10 @@ public class SectionRegistrationImpl implements SectionRegistration{
     public boolean addStudentToSection(Student student, Section section){
         for(int i = 0; i<sectionList.size(); i++){
             if(sectionList.get(i).getSectionID().equals(section.getSectionID())){
-                sectionList.get(i).addStudentsToSection(student);
-                return true;
+                if(sectionList.get(i).getSectionStudentList().size()<sectionList.get(i).getMAX_NUMBER_OF_STUDENTS()){
+                    sectionList.get(i).addStudentsToSection(student);
+                    return true;
+                }
             }
         }
         return false;
