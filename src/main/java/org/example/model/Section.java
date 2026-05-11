@@ -43,8 +43,8 @@ public class Section {
         this.sectionName = sectionName;
     }
 
-    public Program getProgramName() {
-        return this.getProgramName();
+    public Program getProgram() {
+        return this.program;
     }
     public void setProgram(Program program) {
         this.program = program;
@@ -67,7 +67,7 @@ public class Section {
         return "\nSection { " +
                 "sectionID='" + sectionID + '\'' +
                 ", sectionName='" + sectionName + '\'' +
-                ", program='" + this.getProgramName() + '\'' +
+                ", program='" + this.program.getProgramName() + '\'' +
                 " } ";
     }
 }

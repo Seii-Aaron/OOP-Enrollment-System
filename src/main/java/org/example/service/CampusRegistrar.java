@@ -4,6 +4,8 @@ import org.example.model.Program;
 import org.example.model.Section;
 import org.example.model.Student;
 
+import java.util.List;
+
 public class CampusRegistrar {
     private StudentRegistration studReg;
     private TuitionService tuitionService;
@@ -86,5 +88,9 @@ public class CampusRegistrar {
         } else {
             return "Balance is not yet fully paid.";
         }
+    }
+
+    public List<Student> getStudentList(){
+        return studReg.getStudentList();
     }
 }

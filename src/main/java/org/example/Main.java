@@ -1,3 +1,7 @@
+//HELLO SIRRR
+// di ko po natapos yung code ngayon
+
+
 package org.example;
 
 import org.example.service.*;
@@ -76,8 +80,6 @@ public class Main{
                         System.out.println("Set Program to Student.");
                         System.out.println("Enter Student ID: ");
                         String StudID = scan.nextLine();
-                        System.out.println("");
-                        System.out.println(campusRegistrar.setStudentProgram(StudID, program));
 
                     default:
                         System.out.println("Error.");
