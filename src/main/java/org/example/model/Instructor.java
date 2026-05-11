@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Instructor extends Person{
     private List<Course> coursesHandled = new ArrayList<>();
-    private Program program;
+    private Program program = new Program("NULL", "NULL");
 
     public Instructor(){
         super();

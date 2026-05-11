@@ -55,7 +55,7 @@ public class Section {
         return "\nSection { " +
                 "sectionID='" + sectionID + '\'' +
                 ", sectionName='" + sectionName + '\'' +
-                ", program='" + program + '\'' +
+                ", program='" + this.getProgramName() + '\'' +
                 " } ";
     }
 }

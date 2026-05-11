@@ -55,7 +55,8 @@ public class Student extends Person{
         return "\nStudent { " +
                 "studentID='" + super.getID() + '\'' +
                 ", studentName='" + super.getName() + '\'' +
-                ", program='" + program + '\'' +
+                ", program='" + this.getProgramName() + '\'' +
+                ", section=" + this.getSectionName() +
                 " } ";
     }
 }

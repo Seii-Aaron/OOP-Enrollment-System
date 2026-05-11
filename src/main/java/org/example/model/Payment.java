@@ -67,7 +67,7 @@ public class Payment {
     public String toString() {
         return "\nPayment { " +
                 "paymentID='" + paymentID + '\'' +
-                ", student=" + student +
+                ", student=" + student.getName() +
                 ", balance=" + balance +
                 ", units=" + units +
                 ", isPaid=" + isPaid +

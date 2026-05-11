@@ -68,6 +68,7 @@ public class Program {
         return "\n Program { " +
                 "programID='" + programID + '\'' +
                 ", programName='" + programName + '\'' +
+                ", department=" + this.getDepartmentName() +
                 ", progCourseList=" + progCourseList +
                 ", progSectionList=" + progSectionList +
                 " } ";
