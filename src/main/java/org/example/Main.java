@@ -1,5 +1,7 @@
-//HELLO SIRRR
-// di ko po natapos yung code ngayon
+// hello sirrr
+// di ko po natapos yung code ngayon, plano ko po tapusin to bukas
+// sorry po sir, kahit ito na lang po gradean nyo
+// thank you so much po!!!
 
 
 package org.example;
