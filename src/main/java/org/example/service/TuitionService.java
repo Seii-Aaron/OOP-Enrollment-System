@@ -1,8 +1,11 @@
 package org.example.service;
 
+import org.example.model.Student;
+
 public interface TuitionService {
-    double calculateTuitionFee(int units, double discountRate);
-    void makePayment(double amount);
-    double getRemainingBalance();
-    boolean isFullyPaid();
+    void savePayment(String paymentID, Student student, double balance, int units, boolean isPaid);
+    String calculateTuitionFee(String paymentID, int units, double discountRate);
+    String makePayment(String paymentID, double amount);
+    String getRemainingBalance(String paymentID);
+    boolean isFullyPaid(String paymentID);
 }

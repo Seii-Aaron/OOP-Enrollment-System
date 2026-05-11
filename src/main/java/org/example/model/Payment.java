@@ -62,4 +62,16 @@ public class Payment {
     public int getPRICE_PER_UNIT() {
         return PRICE_PER_UNIT;
     }
+
+    @Override
+    public String toString() {
+        return "\nPayment { " +
+                "paymentID='" + paymentID + '\'' +
+                ", student=" + student +
+                ", balance=" + balance +
+                ", units=" + units +
+                ", isPaid=" + isPaid +
+                ", PRICE_PER_UNIT=" + PRICE_PER_UNIT +
+                " } ";
+    }
 }
