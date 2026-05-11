@@ -1,6 +1,7 @@
 package org.example;
 
 import org.example.model.Course;
+import org.example.model.Department;
 import org.example.model.Instructor;
 import org.example.service.CampusRegistrar;
 import org.example.service.CourseRegistrationImpl;

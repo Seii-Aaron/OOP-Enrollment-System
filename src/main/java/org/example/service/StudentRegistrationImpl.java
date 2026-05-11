@@ -1,6 +1,7 @@
 package org.example.service;
 
 import org.example.model.Program;
+import org.example.model.Section;
 import org.example.model.Student;
 
 import java.util.ArrayList;
@@ -42,6 +43,16 @@ public class StudentRegistrationImpl implements StudentRegistration{
         for(int i = 0; i< studentList.size(); i++){
             if(studentList.get(i).getID().equals(studentID)){
                 studentList.get(i).setProgram(program);
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean setStudentSection(String studentID, Section section){
+        for(int i = 0; i< studentList.size(); i++){
+            if(studentList.get(i).getID().equals(studentID)){
+                studentList.get(i).setSection(section);
                 return true;
             }
         }
