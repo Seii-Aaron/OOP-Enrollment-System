@@ -5,9 +5,9 @@ import org.example.model.Course;
 import java.util.List;
 
 public interface CourseRegistration {
-    void saveCourse(String courseID, String name, String program);
+    void saveCourse(String courseID, String name);
     boolean displayAllCourses();
-    boolean updateCourse(String courseID, String name, String program);
+    boolean updateCourse(String courseID, String name);
     boolean removeCourse(String courseID);
     List<Course> getCourseList();
 }

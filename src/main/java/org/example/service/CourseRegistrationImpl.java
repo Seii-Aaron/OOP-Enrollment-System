@@ -1,6 +1,7 @@
 package org.example.service;
 
 import org.example.model.Course;
+import org.example.model.Program;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,8 +10,8 @@ import java.util.Scanner;
 public class CourseRegistrationImpl implements CourseRegistration{
     private List<Course> courseList = new ArrayList<>();
 
-    public void saveCourse(String courseID, String name, String program){
-        courseList.add(new Course(courseID, name, program));
+    public void saveCourse(String courseID, String name){
+        courseList.add(new Course(courseID, name));
     }
 
     public boolean displayAllCourses(){
@@ -18,10 +19,10 @@ public class CourseRegistrationImpl implements CourseRegistration{
         return true;
     }
 
-    public boolean updateCourse(String courseID, String name, String program){
+    public boolean updateCourse(String courseID, String name){
         for(int i = 0; i<courseList.size(); i++){
             if(courseList.get(i).getCourseID().equals(courseID)){
-                courseList.set(i, new Course(courseID, name, program));
+                courseList.set(i, new Course(courseID, name));
                 return true;
             }
         }

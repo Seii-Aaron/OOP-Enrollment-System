@@ -11,8 +11,8 @@ public class CampusRegistrar {
         this.courseReg = courseReg;
     }
 
-    public String saveCourse(String courseID, String name, String program){
-        courseReg.saveCourse(courseID, name, program);
+    public String saveCourse(String courseID, String name){
+        courseReg.saveCourse(courseID, name);
         return "Success";
     }
 
@@ -21,8 +21,8 @@ public class CampusRegistrar {
         return "Success";
     }
 
-    public String updateCourse(String courseID, String name, String program){
-        boolean result = courseReg.updateCourse(courseID, name, program);
+    public String updateCourse(String courseID, String name){
+        boolean result = courseReg.updateCourse(courseID, name);
         if (result){
             return "Success";
         } else {
