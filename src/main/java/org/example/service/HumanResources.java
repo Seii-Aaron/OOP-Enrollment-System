@@ -99,9 +99,22 @@ public class HumanResources {
         return departmentReg.getDepartmentList();
     }
 
-    void saveInstructor(String courseID, String name, String program);
-    boolean displayAllInstructors();
-    boolean updateInstructor(String courseID, String name, String program);
-    boolean removeInstructor(String courseID);
+    public String saveInstructor(String instructorID, String name){
+        instructorReg.saveInstructor(instructorID, name);
+        return "Success";
+    }
+
+    public String displayAllInstructors(){
+        instructorReg.displayAllInstructors();
+        return "Success";
+    }
+
+    public String updateInstructor(String instructorID, String name){
+        boolean result = updateInstructor(instructorID, name)
+    }
+    boolean removeInstructor(String instructorID);
+    boolean addCourseToInstructor(Course course, String instructorID);
+    boolean removeCourseFromInstructor(Course course, String instructorID);
+    void displayInstructorCourses(Instructor instructor);
     List<Instructor> getInstructorList();
 }

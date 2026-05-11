@@ -2,6 +2,7 @@ package org.example.service;
 
 import org.example.model.Course;
 import org.example.model.Instructor;
+import org.example.model.Program;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,6 +33,26 @@ public class InstructorRegistrationImpl {
         for(int i = 0; i< instructorList.size(); i++){
             if(instructorList.get(i).getID().equals(instructorID)){
                 instructorList.remove(i);
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean setProgram(String instructorID, Program program){
+        for(int i = 0; i< instructorList.size(); i++){
+            if(instructorList.get(i).getID().equals(instructorID)){
+                instructorList.get(i).setProgram(program);
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean displayInstructorProgram(String instructorID){
+        for(int i = 0; i< instructorList.size(); i++){
+            if(instructorList.get(i).getID().equals(instructorID)){
+                System.out.println(instructorList.get(i).getProgramName());
                 return true;
             }
         }
