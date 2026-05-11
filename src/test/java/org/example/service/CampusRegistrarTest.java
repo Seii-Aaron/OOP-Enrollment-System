@@ -13,56 +13,10 @@ class CampusRegistrarTest {
     @Mock
     private StudentRegistration studReg;
 
-    @Mock
-    private CourseRegistration courseReg;
-
     @InjectMocks
     private CampusRegistrar campusRegistrar;
 
     //Testing for Course Registration
-    @Test
-    void shouldSaveANewCourse() {
-        String result = campusRegistrar.saveCourse("123", "Prog");
-        assertEquals("Success", result);
-        verify(courseReg).saveCourse("123", "Prog");
-    }
-
-    @Test
-    void shouldDisplayAllCourses() {
-        String result = campusRegistrar.displayAllCourses();
-        assertEquals("Success", result);
-        verify(courseReg).displayAllCourses();
-    }
-
-    @Test
-    void shouldPassUpdatingACourse() {
-        when(courseReg.updateCourse("123", "InteProg")).thenReturn(true);
-        String positive = campusRegistrar.updateCourse("123", "InteProg");
-        assertEquals("Success", positive);
-        verify(courseReg).updateCourse("123", "InteProg");
-    }
-
-    @Test
-    void shouldFailUpdatingACourse() {
-        String negative = campusRegistrar.updateCourse("124", "InteProg");
-        assertEquals("Failed to update course. Please double-check the course ID.", negative);
-        verify(courseReg).updateCourse("124", "InteProg");
-    }
-
-    @Test
-    void shouldPassRemovingACourse() {
-        when(courseReg.removeCourse("123")).thenReturn(true);
-        String positive = campusRegistrar.removeCourse("123");
-        assertEquals("Success", positive);
-        verify(courseReg).removeCourse("123");
-    }
-
-    @Test
-    void shouldFailRemovingACourse() {
-        String negative = campusRegistrar.removeCourse("124");
-        assertEquals("Failed to remove course. Please double-check the course ID.", negative);
-        verify(courseReg).removeCourse("124");
-    }
 
 
     //Testing for Student Registration

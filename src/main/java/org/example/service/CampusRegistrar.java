@@ -8,8 +8,9 @@ public class CampusRegistrar {
     private StudentRegistration studReg;
     private TuitionService tuitionService;
 
-    public CampusRegistrar(StudentRegistration studReg){
+    public CampusRegistrar(StudentRegistration studReg, TuitionService tuitionService){
         this.studReg = studReg;
+        this.tuitionService = tuitionService;
     }
 
     public String saveStudent(String studentID, String name){
