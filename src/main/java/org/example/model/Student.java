@@ -1,8 +1,12 @@
 package org.example.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Student extends Person{
     private Program program = new Program("NULL", "NULL");
-    private Section section;
+    private Section section = new Section("NULL", "NULL");
+    private List<Payment> studentPayments = new ArrayList<>();
 
     public Student(){
         super();
@@ -27,6 +31,18 @@ public class Student extends Person{
 
     public void setProgram(Program program){
         this.program = program;
+    }
+
+    public String getSectionName() {
+        return this.section.getSectionName();
+    }
+
+    public void setSection(Section section) {
+        this.section = section;
+    }
+
+    public List<Payment> getStudentPayments() {
+        return studentPayments;
     }
 
     @Override
