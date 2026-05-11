@@ -110,11 +110,49 @@ public class HumanResources {
     }
 
     public String updateInstructor(String instructorID, String name){
-        boolean result = updateInstructor(instructorID, name)
+        boolean result = instructorReg.updateInstructor(instructorID, name);
+        if(result){
+            return "Success";
+        } else {
+            return "Failed updating instructor.";
+        }
     }
-    boolean removeInstructor(String instructorID);
-    boolean addCourseToInstructor(Course course, String instructorID);
-    boolean removeCourseFromInstructor(Course course, String instructorID);
-    void displayInstructorCourses(Instructor instructor);
-    List<Instructor> getInstructorList();
+
+    public String removeInstructor(String instructorID){
+        boolean result = instructorReg.removeInstructor(instructorID);
+        if(result){
+            return "Success";
+        } else {
+            return "Failed removing instructor.";
+        }
+    }
+
+    public String addCourseToInstructor(Course course, String instructorID){
+        boolean result = instructorReg.addCourseToInstructor(course, instructorID);
+        if(result){
+            return "Success";
+        } else {
+            return "Failed adding course to instructor.";
+        }
+    }
+
+    public String removeCourseFromInstructor(Course course, String instructorID){
+        boolean result = instructorReg.removeCourseFromInstructor(course, instructorID);
+        if(result){
+            return "Success";
+        } else {
+            return "Failed removing course from instructor.";
+        }
+    }
+
+    public String displayInstructorCourses(Instructor instructor){
+        instructorReg.displayInstructorCourses(instructor);
+        return "Success";
+    }
+
+    public List<Instructor> getInstructorList(){
+        return instructorReg.getInstructorList();
+    }
+
+
 }

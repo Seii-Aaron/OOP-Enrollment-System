@@ -1,5 +1,6 @@
 package org.example.service;
 
+import org.example.model.Department;
 import org.example.model.Program;
 
 import java.util.List;
@@ -9,5 +10,7 @@ public interface ProgramRegistration {
     boolean displayAllPrograms();
     boolean updateProgram(String programID, String programName);
     boolean removeProgram(String programID);
+    boolean setProgramDepartment(Department department, Program program);
+    boolean displayProgramDepartment(Program program);
     List<Program> getProgramList();
 }
