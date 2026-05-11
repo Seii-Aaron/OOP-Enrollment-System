@@ -7,7 +7,7 @@ import org.example.model.Program;
 import java.util.ArrayList;
 import java.util.List;
 
-public class InstructorRegistrationImpl {
+public class InstructorRegistrationImpl implements InstructorRegistration{
     private List<Instructor> instructorList = new ArrayList<>();
 
     public void saveInstructor(String instructorID, String instructorName){
@@ -69,7 +69,7 @@ public class InstructorRegistrationImpl {
         return false;
     }
 
-    public boolean removeCourseToInstructor(Course course, String instructorID){
+    public boolean removeCourseFromInstructor(Course course, String instructorID){
         for(int i = 0; i< instructorList.size(); i++){
             if(instructorList.get(i).getID().equals(instructorID)){
                 instructorList.get(i).removeCourse(course);

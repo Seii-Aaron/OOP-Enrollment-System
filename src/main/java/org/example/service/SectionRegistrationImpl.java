@@ -7,7 +7,7 @@ import org.example.model.Section;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SectionRegistrationImpl {
+public class SectionRegistrationImpl implements SectionRegistration{
     private List<Section> sectionList = new ArrayList<>();
 
     public void saveSection(String sectionID, String sectionName){

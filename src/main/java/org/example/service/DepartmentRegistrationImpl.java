@@ -5,7 +5,7 @@ import org.example.model.Department;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DepartmentRegistrationImpl {
+public class DepartmentRegistrationImpl implements DepartmentRegistration{
     private List<Department> departmentList = new ArrayList<>();
 
     public void saveDepartment(String departmentID, String departmentName){
