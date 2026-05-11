@@ -2,6 +2,7 @@ package org.example.service;
 
 import org.example.model.Course;
 import org.example.model.Department;
+import org.example.model.Instructor;
 import org.example.model.Program;
 
 import java.util.List;
@@ -63,9 +64,44 @@ public class HumanResources {
         return courseReg.getCourseList();
     }
 
-    public void saveDepartment(String departmentID, String departmentName);
-    public boolean displayAllDepartments();
-    public boolean updateDepartment(String departmentID, String departmentName);
-    public boolean removeDepartment(String departmentID);
-    public List<Department> getDepartmentList();
+    public String saveDepartment(String departmentID, String departmentName){
+        departmentReg.saveDepartment(departmentID, departmentName);
+        return "Success";
+    }
+
+    public String displayAllDepartments(){
+        departmentReg.displayAllDepartments();
+        return "Success";
+    }
+
+
+    public String updateDepartment(String departmentID, String departmentName){
+        boolean result = departmentReg.updateDepartment(departmentID, departmentName);
+        if(result){
+            return "Success";
+        } else {
+            return "Failed updating department.";
+        }
+    }
+
+
+    public String removeDepartment(String departmentID){
+        boolean result = departmentReg.removeDepartment(departmentID);
+        if(result){
+            return "Success";
+        } else {
+            return "Failed removing department.";
+        }
+    }
+
+
+    public List<Department> getDepartmentList(){
+        return departmentReg.getDepartmentList();
+    }
+
+    void saveInstructor(String courseID, String name, String program);
+    boolean displayAllInstructors();
+    boolean updateInstructor(String courseID, String name, String program);
+    boolean removeInstructor(String courseID);
+    List<Instructor> getInstructorList();
 }
