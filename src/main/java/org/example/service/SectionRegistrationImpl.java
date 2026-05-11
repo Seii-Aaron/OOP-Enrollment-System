@@ -11,8 +11,13 @@ import java.util.List;
 public class SectionRegistrationImpl implements SectionRegistration{
     private List<Section> sectionList = new ArrayList<>();
 
-    public void saveSection(String sectionID, String sectionName){
-        sectionList.add(new Section(sectionID, sectionName));
+    public boolean saveSection(String sectionID, String sectionName){
+        if(sectionList.size()<30){
+            sectionList.add(new Section(sectionID, sectionName));
+            return true;
+        } else {
+            return false;
+        }
     }
 
     public boolean displayAllSections(){

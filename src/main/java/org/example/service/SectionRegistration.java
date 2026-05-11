@@ -7,7 +7,7 @@ import org.example.model.Student;
 import java.util.List;
 
 public interface SectionRegistration {
-    void saveSection(String sectionID, String sectionName);
+    boolean saveSection(String sectionID, String sectionName);
     boolean displayAllSections();
     boolean updateSection(String sectionID, String sectionName);
     boolean removeSection(String sectionID);

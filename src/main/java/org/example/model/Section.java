@@ -54,6 +54,10 @@ public class Section {
         sectionStudentList.add(student);
     }
 
+    public int getMAX_NUMBER_OF_STUDENTS() {
+        return MAX_NUMBER_OF_STUDENTS;
+    }
+
     public List<Student> getSectionStudentList() {
         return sectionStudentList;
     }
