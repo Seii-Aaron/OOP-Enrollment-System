@@ -1,8 +1,5 @@
 package org.example;
 
-import org.example.model.Course;
-import org.example.model.Department;
-import org.example.model.Instructor;
 import org.example.service.*;
 
 import java.util.Scanner;
@@ -17,8 +14,13 @@ public class Main{
         while (true){
             System.out.print("\nPick a number.\n" +
                     "1. Student Registration\n" +
-                    "2. Course Registration\n" +
-                    "3. Exit\n" +
+                    "2. Tuition Service\n" +
+                    "3. Course Registration\n" +
+                    "4. Section Registration\n" +
+                    "5. Instructor Registration\n" +
+                    "6. Program Registration\n" +
+                    "7. Department Registration\n" +
+                    "8. Exit\n" +
                     "Answer: ");
 
             int num1 = scan.nextInt();
@@ -93,34 +95,29 @@ public class Main{
                         System.out.println("Enter Course Name: ");
                         String courseName = scan.nextLine();
 
-                        System.out.println("Enter Program: ");
-                        String courseProgram = scan.nextLine();
-
-                        System.out.println(campusRegistrar.saveCourse(courseID, courseName, courseProgram));
+                        System.out.println(humanResources.saveCourse(courseID, courseName));
                         break;
 
                     case 2:
-                        campusRegistrar.displayAllCourses();
+                        humanResources.displayAllCourses();
                         break;
 
                     case 3:
-                        campusRegistrar.displayAllCourses();
+                        humanResources.displayAllCourses();
                         System.out.println("Update Course.");
                         System.out.println("Enter Course ID: ");
                         String newCourseID = scan.nextLine();
                         System.out.println("Enter name: ");
                         String newName = scan.nextLine();
-                        System.out.println("Enter program: ");
-                        String newProgram = scan.nextLine();
-                        System.out.println(campusRegistrar.updateCourse(newCourseID, newName, newProgram));
+                        System.out.println(humanResources.updateCourse(newCourseID, newName));
                         break;
 
                     case 4:
-                        campusRegistrar.displayAllCourses();
+                        humanResources.displayAllCourses();
                         System.out.println("Remove Course.");
                         System.out.println("Enter Course ID: ");
                         String delCourseID = scan.nextLine();
-                        System.out.println(campusRegistrar.removeCourse(delCourseID));
+                        System.out.println(humanResources.removeCourse(delCourseID));
                         break;
 
                     default:
@@ -129,7 +126,7 @@ public class Main{
                 }
 
 
-            } else if (num1 == 3){
+            } else if (num1 == 8){
                 System.exit(0);
 
 

@@ -7,7 +7,7 @@ public class Section {
     private String sectionID;
     private String sectionName;
     private Program program = new Program("NULL", "NULL");
-
+    private final int MAX_NUMBER_OF_STUDENTS = 30;
     private List<Student> sectionStudentList = new ArrayList<>();
 
     public Section(){
@@ -48,6 +48,14 @@ public class Section {
     }
     public void setProgram(Program program) {
         this.program = program;
+    }
+
+    public void addStudentsToSection(Student student){
+        sectionStudentList.add(student);
+    }
+
+    public List<Student> getSectionStudentList() {
+        return sectionStudentList;
     }
 
     @Override
