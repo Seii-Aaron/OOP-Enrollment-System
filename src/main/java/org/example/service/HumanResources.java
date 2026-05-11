@@ -1,9 +1,6 @@
 package org.example.service;
 
-import org.example.model.Course;
-import org.example.model.Department;
-import org.example.model.Instructor;
-import org.example.model.Program;
+import org.example.model.*;
 
 import java.util.List;
 
@@ -200,5 +197,49 @@ public class HumanResources {
         return programReg.getProgramList();
     }
 
+    public String saveSection(String sectionID, String sectionName){
+        sectionReg.saveSection(sectionID, sectionName);
+        return "Success";
+    }
 
+    public String displayAllSections(){
+        sectionReg.displayAllSections();
+        return "Success";
+    }
+
+    public String updateSection(String sectionID, String sectionName){
+        boolean result = sectionReg.updateSection(sectionID, sectionName);
+        if (result) {
+            return "Success";
+        } else {
+            return "Failed updating section.";
+        }
+    }
+
+    public String removeSection(String sectionID){
+        boolean result = sectionReg.removeSection(sectionID);
+        if(result) {
+            return "Success";
+        } else {
+            return "Failed removing section.";
+        }
+    }
+
+    public String setProgramToSection(Program program, Section section){
+        boolean result = sectionReg.setProgramToSection(program, section);
+        if (result) {
+            return "Success";
+        } else {
+            return "Failed setting program to section.";
+        }
+    }
+
+    public String displaySectionProgram(Section section){
+        sectionReg.displaySectionProgram(section);
+        return "Success";
+    }
+
+    public List<Section> getSectionList(){
+        return sectionReg.getSectionList();
+    }
 }

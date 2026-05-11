@@ -6,9 +6,9 @@ import org.example.model.Section;
 import java.util.List;
 
 public interface SectionRegistration {
-    void saveSection(String sectionID, String sectionName, Program program);
+    void saveSection(String sectionID, String sectionName);
     boolean displayAllSections();
-    boolean updateSection(String sectionID, String sectionName, Program program);
+    boolean updateSection(String sectionID, String sectionName);
     boolean removeSection(String sectionID);
     boolean setProgramToSection(Program program, Section section);
     boolean displaySectionProgram(Section section);
