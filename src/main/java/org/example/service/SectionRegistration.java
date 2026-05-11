@@ -2,6 +2,7 @@ package org.example.service;
 
 import org.example.model.Program;
 import org.example.model.Section;
+import org.example.model.Student;
 
 import java.util.List;
 
@@ -12,5 +13,7 @@ public interface SectionRegistration {
     boolean removeSection(String sectionID);
     boolean setProgramToSection(Program program, Section section);
     boolean displaySectionProgram(Section section);
+    boolean addStudentToSection(Student student, Section section);
+    List<Student> getSectionStudentList(Section section);
     List<Section> getSectionList();
 }

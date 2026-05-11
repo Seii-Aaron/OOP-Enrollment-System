@@ -7,7 +7,7 @@ import org.example.model.Program;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ProgramRegistrationImpl {
+public class ProgramRegistrationImpl implements ProgramRegistration{
     private List<Program> programList = new ArrayList<>();
 
     public void saveProgram(String programID, String programName){

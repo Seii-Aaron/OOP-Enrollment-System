@@ -7,7 +7,7 @@ public class Section {
     private String sectionID;
     private String sectionName;
     private Program program = new Program("NULL", "NULL");
-
+    private final int MAX_NUMBER_OF_STUDENTS = 30;
     private List<Student> sectionStudentList = new ArrayList<>();
 
     public Section(){
@@ -43,11 +43,23 @@ public class Section {
         this.sectionName = sectionName;
     }
 
-    public Program getProgramName() {
-        return this.getProgramName();
+    public Program getProgram() {
+        return this.program;
     }
     public void setProgram(Program program) {
         this.program = program;
+    }
+
+    public void addStudentsToSection(Student student){
+        sectionStudentList.add(student);
+    }
+
+    public int getMAX_NUMBER_OF_STUDENTS() {
+        return MAX_NUMBER_OF_STUDENTS;
+    }
+
+    public List<Student> getSectionStudentList() {
+        return sectionStudentList;
     }
 
     @Override
@@ -55,7 +67,7 @@ public class Section {
         return "\nSection { " +
                 "sectionID='" + sectionID + '\'' +
                 ", sectionName='" + sectionName + '\'' +
-                ", program='" + this.getProgramName() + '\'' +
+                ", program='" + this.program.getProgramName() + '\'' +
                 " } ";
     }
 }

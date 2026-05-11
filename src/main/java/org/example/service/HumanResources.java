@@ -239,6 +239,15 @@ public class HumanResources {
         return "Success";
     }
 
+    public String addStudentToSection(Student student, Section section){
+        boolean result = sectionReg.addStudentToSection(student, section);
+        return "Success";
+    }
+
+    public List<Student> getSectionStudentList(Section section){
+        return sectionReg.getSectionStudentList(section);
+    }
+
     public List<Section> getSectionList(){
         return sectionReg.getSectionList();
     }
