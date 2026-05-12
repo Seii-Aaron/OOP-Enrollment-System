@@ -12,10 +12,10 @@ public class Payment {
 
     }
 
-    public Payment(String paymentID, Student student, double balance, int units, boolean isPaid) {
+    public Payment(String paymentID, double balance, int units, boolean isPaid) {
         this.paymentID = paymentID;
-        this.student = student;
         this.balance = balance;
+        this.units = units;
         this.isPaid = isPaid;
     }
 

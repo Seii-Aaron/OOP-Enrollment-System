@@ -13,5 +13,6 @@ public interface StudentRegistration {
     boolean removeStudent(String studentID);
     boolean setStudentProgram(String studentID, Program program);
     boolean setStudentSection(String studentID, Section section);
+    Student getStudent(String studentID);
     List<Student> getStudentList();
 }

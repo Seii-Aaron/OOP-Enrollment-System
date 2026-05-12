@@ -65,6 +65,15 @@ public class StudentRegistrationImpl implements StudentRegistration{
         return false;
     }
 
+    public Student getStudent(String studentID){
+        for(int i = 0; i< studentList.size(); i++){
+            if(studentList.get(i).getID().equals(studentID)){
+                return studentList.get(i);
+            }
+        }
+        return null;
+    }
+
     public List<Student> getStudentList() {
         return studentList;
     }

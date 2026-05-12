@@ -9,8 +9,8 @@ import java.util.List;
 public class TuitionServiceImpl implements TuitionService{
     private List<Payment> payments = new ArrayList<>();
 
-    public void savePayment(String paymentID, Student student, double balance, int units, boolean isPaid){
-        payments.add(new Payment(paymentID, student, balance, units, isPaid));
+    public void savePayment(String paymentID, double balance, int units, boolean isPaid){
+        payments.add(new Payment(paymentID, balance, units, isPaid));
     }
 
     public String calculateTuitionFee(String paymentID, int units, double discountRate){
@@ -67,4 +67,18 @@ public class TuitionServiceImpl implements TuitionService{
 
         return isPaid;
     }
+
+    public String setPaymentStudent(String paymentID,Student student){
+        if(student == null){
+            return "Failed setting student to payment.";
+        }
+        for(int i = 0; i < payments.size(); i++){
+            if (payments.get(i).getPaymentID().equals(paymentID)){
+                payments.get(i).setStudent(student);
+                return "Success";
+            }
+        }
+        return "Failed setting student to payment.";
+    }
+
 }

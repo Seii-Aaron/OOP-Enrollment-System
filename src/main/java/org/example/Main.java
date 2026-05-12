@@ -11,7 +11,7 @@ public class Main{
         CampusRegistrar campusRegistrar = new CampusRegistrar(new StudentRegistrationImpl(), new TuitionServiceImpl());
 
         //interactive
-        while (true){
+        while (true) {
             System.out.print("\nPick a number.\n" +
                     "1. Student Registration\n" +
                     "2. Course Registration\n" +
@@ -25,7 +25,7 @@ public class Main{
 
             int num1 = scan.nextInt();
 
-            if (num1 == 1){
+            if (num1 == 1) {
                 System.out.print("\nStudent Registration:\n" +
                         "Pick a number.\n" +
                         "1. Save Student\n" +
@@ -37,7 +37,7 @@ public class Main{
                         "Answer: ");
                 int srNum = scan.nextInt();
                 scan.nextLine();
-                switch(srNum){
+                switch (srNum) {
                     case 1:
                         System.out.println("\nSave Student.");
                         System.out.println("Enter Student ID: ");
@@ -99,8 +99,7 @@ public class Main{
                 }
 
 
-
-            } else if (num1 == 2){
+            } else if (num1 == 2) {
                 System.out.print("\nCourse Registration:\n" +
                         "Pick a number.\n" +
                         "1. Save Course\n" +
@@ -111,7 +110,7 @@ public class Main{
                         "Answer: ");
                 int crNum = scan.nextInt();
                 scan.nextLine();
-                switch(crNum){
+                switch (crNum) {
                     case 1:
                         System.out.println("\nSave Course.");
                         System.out.println("Enter Course ID: ");
@@ -161,6 +160,16 @@ public class Main{
                         break;
                 }
 
+
+            } else if (num1 == 3){
+
+            } else if (num1 == 4){
+
+            } else if (num1 == 5){
+
+            } else if (num1 == 6){
+
+            } else if (num1 == 7){
 
             } else if (num1 == 8){
                 System.exit(0);
