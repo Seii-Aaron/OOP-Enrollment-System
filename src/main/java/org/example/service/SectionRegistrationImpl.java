@@ -72,6 +72,8 @@ public class SectionRegistrationImpl implements SectionRegistration{
         return true;
     }
 
+    // Temporary
+    // Setting student's program needs to be fixed
     public boolean addStudentToSection(Student student, Section section){
         if(student == null){
             return false;
@@ -87,6 +89,8 @@ public class SectionRegistrationImpl implements SectionRegistration{
                     }
                 }
                 sectionList.get(i).addStudentsToSection(student);
+                student.setSection(sectionList.get(i));
+                student.setProgram(sectionList.get(i).getProgram());
                 return true;
             }
         }
@@ -105,6 +109,8 @@ public class SectionRegistrationImpl implements SectionRegistration{
                 for(int j = 0; j<sectionList.get(i).getSectionStudentList().size(); j++){
                     if(sectionList.get(i).getSectionStudentList().get(j).getID().equals(student.getID())){
                         sectionList.get(i).getSectionStudentList().remove(j);
+                        student.setSection(new Section("NULL", "NULL"));
+                        student.setProgram(new Program("NULL", "NULL"));
                         return true;
                     }
                 }

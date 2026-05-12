@@ -51,6 +51,10 @@ public class Section {
         this.program = program;
     }
 
+    public Program getProgram(){
+        return this.program;
+    }
+
     public void addStudentsToSection(Student student){
         sectionStudentList.add(student);
     }

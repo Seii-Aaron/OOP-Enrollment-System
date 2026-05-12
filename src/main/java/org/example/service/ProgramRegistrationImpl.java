@@ -77,6 +77,7 @@ public class ProgramRegistrationImpl implements ProgramRegistration{
                     }
                 }
                 programList.get(i).addCourseToProgram(course);
+                course.setProgram(programList.get(i));
                 return true;
             }
         }
@@ -95,6 +96,7 @@ public class ProgramRegistrationImpl implements ProgramRegistration{
                 for(int j = 0; j<programList.get(i).getProgCourseList().size(); j++){
                     if(programList.get(i).getProgCourseList().get(j).getCourseID().equals(course.getCourseID())){
                         programList.get(i).getProgCourseList().remove(j);
+                        course.setProgram(new Program("NULL", "NULL"));
                         return true;
                     }
                 }
@@ -118,6 +120,7 @@ public class ProgramRegistrationImpl implements ProgramRegistration{
                     }
                 }
                 programList.get(i).addSectionToProgram(section);
+                section.setProgram(programList.get(i));
                 return true;
             }
         }
@@ -136,6 +139,7 @@ public class ProgramRegistrationImpl implements ProgramRegistration{
                 for(int j = 0; j<programList.get(i).getProgSectionList().size(); j++){
                     if(programList.get(i).getProgSectionList().get(j).getSectionID().equals(section.getSectionID())){
                         programList.get(i).getProgSectionList().remove(j);
+                        section.setProgram(new Program("NULL", "NULL"));
                         return true;
                     }
                 }
