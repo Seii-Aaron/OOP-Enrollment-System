@@ -38,6 +38,15 @@ public class DepartmentRegistrationImpl implements DepartmentRegistration{
         return false;
     }
 
+    public Department getDepartment(String departmentID){
+        for(int i = 0; i<departmentList.size(); i++){
+            if(departmentList.get(i).getDepartmentID().equals(departmentID)){
+                return departmentList.get(i);
+            }
+        }
+        return null;
+    }
+
     public List<Department> getDepartmentList(){
         return departmentList;
     }

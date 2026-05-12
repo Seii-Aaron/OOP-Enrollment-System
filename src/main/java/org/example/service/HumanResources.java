@@ -95,6 +95,9 @@ public class HumanResources {
         }
     }
 
+    public Department getDepartment(String departmentID){
+        return departmentReg.getDepartment(departmentID);
+    }
 
     public List<Department> getDepartmentList(){
         return departmentReg.getDepartmentList();

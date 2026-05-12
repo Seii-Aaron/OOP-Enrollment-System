@@ -42,6 +42,12 @@ public class ProgramRegistrationImpl implements ProgramRegistration{
     }
 
     public boolean setProgramDepartment(Department department, Program program){
+        if (department == null) {
+            return false;
+        }
+        if (program == null) {
+            return false;
+        }
         for(int i = 0; i<programList.size(); i++){
             if(programList.get(i).getProgramID().equals(program.getProgramID())){
                 programList.get(i).setDepartment(department);
@@ -52,7 +58,7 @@ public class ProgramRegistrationImpl implements ProgramRegistration{
     }
 
     public boolean displayProgramDepartment(Program program){
-        System.out.println(program.getDepartmentName());
+        System.out.println("Department of Program: " + program.getDepartmentName());
         return true;
     }
 
