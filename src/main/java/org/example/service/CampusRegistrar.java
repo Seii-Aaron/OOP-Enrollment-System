@@ -64,8 +64,12 @@ public class CampusRegistrar {
     }
 
     public String displayStudentPayments(String studentID){
-        studReg.displayStudentPayments(studentID);
-        return "Success";
+        boolean result = studReg.displayStudentPayments(studentID);
+        if(result){
+            return "Success";
+        } else {
+            return "Failed displaying Student's payments.";
+        }
     }
 
 
@@ -104,5 +108,9 @@ public class CampusRegistrar {
     public String displayAllPayments(){
         tuitionService.displayAllPayments();
         return "Success";
+    }
+
+    public String setPaymentStudent(String paymentID, Student student){
+        return tuitionService.setPaymentStudent(paymentID, student);
     }
 }

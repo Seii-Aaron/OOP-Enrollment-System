@@ -35,6 +35,7 @@ public class Main{
                         "5. Set Program of Student\n" +
                         "6. Set Section of Student\n" +
                         "7. Display Payments of Student\n" +
+                        "8. Back to Menu\n" +
                         "Answer: ");
                 int srNum = scan.nextInt();
                 scan.nextLine();
@@ -99,7 +100,10 @@ public class Main{
                         System.out.println("Display a Student's payments");
                         System.out.println("Enter Student ID: ");
                         String studID4 = scan.nextLine();
-                        campusRegistrar.displayStudentPayments(studID4);
+                        System.out.println(campusRegistrar.displayStudentPayments(studID4));
+                        break;
+
+                    case 8:
                         break;
 
                     default:
@@ -116,6 +120,7 @@ public class Main{
                         "3. Update Course\n" +
                         "4. Remove Course\n" +
                         "5. Set Program of Course\n" +
+                        "6. Back to Menu\n" +
                         "Answer: ");
                 int crNum = scan.nextInt();
                 scan.nextLine();
@@ -158,10 +163,13 @@ public class Main{
                         System.out.println("Set Program of Course.");
                         System.out.println("Enter Course ID: ");
                         String courseID2 = scan.nextLine();
-                        System.out.println(humanResources.displayAllPrograms());
+                        humanResources.displayAllPrograms();
                         System.out.println("Enter Program ID: ");
                         String progID = scan.nextLine();
                         System.out.println(humanResources.setCourseProgram(courseID2, humanResources.getProgram(progID)));
+                        break;
+
+                    case 6:
                         break;
 
                     default:
@@ -179,6 +187,7 @@ public class Main{
                         "4. Get Balance\n" +
                         "5. Assign Student to Payment\n" +
                         "6. Check Payment Status\n" +
+                        "7. Back to Menu\n" +
                         "Answer: ");
                 int srNum = scan.nextInt();
                 scan.nextLine();
@@ -204,23 +213,53 @@ public class Main{
                         int units = scan.nextInt();
                         System.out.println("Enter discount rate (in percentage, e.g. 100): ");
                         double discountRate = scan.nextDouble();
-                        campusRegistrar.calculateTuitionFee(paymentID2, units, discountRate);
+                        System.out.println(campusRegistrar.calculateTuitionFee(paymentID2, units, discountRate));
                         break;
 
                     case 3:
-
+                        campusRegistrar.displayAllPayments();
+                        System.out.println("Make Payment");
+                        System.out.println("Select Transaction");
+                        System.out.println("Enter Payment ID: ");
+                        String paymentID3 = scan.nextLine();
+                        System.out.println("The balance of this transaction is: " + campusRegistrar.getRemainingBalance(paymentID3));
+                        System.out.println("Enter amount to pay: ");
+                        double amount = scan.nextDouble();
+                        System.out.println(campusRegistrar.makePayment(paymentID3, amount));
                         break;
 
                     case 4:
-
+                        campusRegistrar.displayAllPayments();
+                        System.out.println("Get Remaining Balance of a Payment");
+                        System.out.println("Select Transaction");
+                        System.out.println("Enter Payment ID: ");
+                        String paymentID4 = scan.nextLine();
+                        System.out.println("Remaining balance: " + campusRegistrar.getRemainingBalance(paymentID4));
                         break;
 
                     case 5:
-
+                        campusRegistrar.displayAllPayments();
+                        System.out.println("Assign Student to a Payment");
+                        System.out.println("Select Transaction");
+                        System.out.println("Enter Payment ID: ");
+                        String paymentID5 = scan.nextLine();
+                        campusRegistrar.displayAllStudent();
+                        System.out.println("Select Student");
+                        System.out.println("Enter Student ID: ");
+                        String studentID2 = scan.nextLine();
+                        System.out.println(campusRegistrar.setPaymentStudent(paymentID5, campusRegistrar.getStudent(studentID2)));
                         break;
 
                     case 6:
+                        campusRegistrar.displayAllPayments();
+                        System.out.println("Check Payment Status");
+                        System.out.println("Select Transaction");
+                        System.out.println("Enter Payment ID: ");
+                        String paymentID6 = scan.nextLine();
+                        System.out.println(campusRegistrar.getRemainingBalance(paymentID6));
+                        break;
 
+                    case 7:
                         break;
 
                     default:

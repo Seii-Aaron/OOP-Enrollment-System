@@ -20,7 +20,15 @@ public class TuitionServiceImpl implements TuitionService{
     public String calculateTuitionFee(String paymentID, int units, double discountRate){
         for(int i = 0; i < payments.size(); i++){
             if (payments.get(i).getPaymentID().equals(paymentID)){
-                double balance = (units*payments.get(i).getPRICE_PER_UNIT())*(discountRate/100);
+                double balance = 0;
+                if(discountRate > 0){
+                    balance = units*payments.get(i).getPRICE_PER_UNIT()-(units*payments.get(i).getPRICE_PER_UNIT())*(discountRate/100);
+                } else if (discountRate == 0) {
+                    balance = units*payments.get(i).getPRICE_PER_UNIT();
+                } else if (discountRate < 0){
+                    return "Calculation Error. Please double check paymentID, units, or discount rate.";
+                }
+
                 payments.get(i).setBalance(balance);
                 payments.get(i).setUnits(units);
                 return "Tuition Fee: " + balance;
