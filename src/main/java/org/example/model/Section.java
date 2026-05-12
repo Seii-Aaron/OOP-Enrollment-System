@@ -43,9 +43,10 @@ public class Section {
         this.sectionName = sectionName;
     }
 
-    public Program getProgram() {
-        return this.program;
+    public String getProgramName() {
+        return program.getProgramName();
     }
+
     public void setProgram(Program program) {
         this.program = program;
     }
@@ -58,6 +59,10 @@ public class Section {
         return MAX_NUMBER_OF_STUDENTS;
     }
 
+    public int getNumberOfStudentsEnrolled(){
+        return sectionStudentList.size();
+    }
+
     public List<Student> getSectionStudentList() {
         return sectionStudentList;
     }
@@ -67,7 +72,8 @@ public class Section {
         return "\nSection { " +
                 "sectionID='" + sectionID + '\'' +
                 ", sectionName='" + sectionName + '\'' +
-                ", program='" + this.program.getProgramName() + '\'' +
+                ", program='" + program.getProgramName() + '\'' +
+                ", number of students=" + sectionStudentList.size() +
                 " } ";
     }
 }

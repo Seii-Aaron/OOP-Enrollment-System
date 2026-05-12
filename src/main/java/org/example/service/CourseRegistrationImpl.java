@@ -16,6 +16,7 @@ public class CourseRegistrationImpl implements CourseRegistration{
 
     public boolean displayAllCourses(){
         System.out.println(courseList);
+        System.out.println();
         return true;
     }
 
@@ -40,6 +41,9 @@ public class CourseRegistrationImpl implements CourseRegistration{
     }
 
     public boolean setCourseProgram(String courseID, Program program){
+        if(program == null){
+            return false;
+        }
         for(int i = 0; i<courseList.size(); i++){
             if(courseList.get(i).getCourseID().equals(courseID)){
                 courseList.get(i).setProgram(program);
@@ -48,6 +52,16 @@ public class CourseRegistrationImpl implements CourseRegistration{
         }
         return false;
     }
+
+    public Course getCourse(String courseID){
+        for(int i = 0; i<courseList.size(); i++){
+            if(courseList.get(i).getCourseID().equals(courseID)){
+                return courseList.get(i);
+            }
+        }
+        return null;
+    }
+
 
     public List<Course> getCourseList() {
         return courseList;

@@ -16,6 +16,7 @@ public class StudentRegistrationImpl implements StudentRegistration{
 
     public boolean displayAllStudent(){
         System.out.println(studentList);
+        System.out.println();
         return true;
     }
 
@@ -40,6 +41,9 @@ public class StudentRegistrationImpl implements StudentRegistration{
     }
 
     public boolean setStudentProgram(String studentID, Program program){
+        if(program == null){
+            return false;
+        }
         for(int i = 0; i< studentList.size(); i++){
             if(studentList.get(i).getID().equals(studentID)){
                 studentList.get(i).setProgram(program);
@@ -50,9 +54,32 @@ public class StudentRegistrationImpl implements StudentRegistration{
     }
 
     public boolean setStudentSection(String studentID, Section section){
+        if(section == null){
+            return false;
+        }
         for(int i = 0; i< studentList.size(); i++){
             if(studentList.get(i).getID().equals(studentID)){
                 studentList.get(i).setSection(section);
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public Student getStudent(String studentID){
+        for(int i = 0; i< studentList.size(); i++){
+            if(studentList.get(i).getID().equals(studentID)){
+                return studentList.get(i);
+            }
+        }
+        return null;
+    }
+
+    public boolean displayStudentPayments(String studentID){
+        for(int i = 0; i< studentList.size(); i++){
+            if(studentList.get(i).getID().equals(studentID)){
+                System.out.println(studentList.get(i).getStudentPayments());
+                System.out.println();
                 return true;
             }
         }

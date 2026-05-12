@@ -57,6 +57,10 @@ public class HumanResources {
         }
     }
 
+    public Course getCourse(String courseID){
+        return courseReg.getCourse(courseID);
+    }
+
     public List<Course> getCourseList(){
         return courseReg.getCourseList();
     }
@@ -143,8 +147,34 @@ public class HumanResources {
     }
 
     public String displayInstructorCourses(Instructor instructor){
-        instructorReg.displayInstructorCourses(instructor);
-        return "Success";
+        boolean result = instructorReg.displayInstructorCourses(instructor);
+        if (result) {
+            return "Success";
+        } else {
+            return "Failed displaying Courses of Instructor.";
+        }
+    }
+
+    public String displayInstructorProgram(String instructorID){
+        boolean result = instructorReg.displayInstructorProgram(instructorID);
+        if(result){
+            return "Success";
+        } else {
+            return "Failed displaying program of instructor.";
+        }
+    }
+
+    public String setInstructorProgram(String instructorID, Program program){
+        boolean result = instructorReg.setInstructorProgram(instructorID, program);
+        if(result){
+            return "Success";
+        } else {
+            return "Failed setting Program of Instructor.";
+        }
+    }
+
+    public Instructor getInstructor(String instructorID){
+        return instructorReg.getInstructor(instructorID);
     }
 
     public List<Instructor> getInstructorList(){
@@ -193,6 +223,10 @@ public class HumanResources {
         return "Success";
     }
 
+    public Program getProgram(String programID){
+        return programReg.getProgram(programID);
+    }
+
     public List<Program> getProgramList(){
         return programReg.getProgramList();
     }
@@ -235,13 +269,45 @@ public class HumanResources {
     }
 
     public String displaySectionProgram(Section section){
-        sectionReg.displaySectionProgram(section);
-        return "Success";
+        boolean result = sectionReg.displaySectionProgram(section);
+        if(result){
+            return "Success";
+        } else {
+            return "Failed displaying section program.";
+        }
+    }
+
+    public String displayNumberOfStudentsEnrolled(Section section){
+        boolean result = sectionReg.displaySectionProgram(section);
+        if(result){
+            return "Success";
+        } else {
+            return "Failed displaying number of students enrolled.";
+        }
     }
 
     public String addStudentToSection(Student student, Section section){
         boolean result = sectionReg.addStudentToSection(student, section);
-        return "Success";
+        if(result){
+            return "Success";
+        } else {
+            return "Failed adding Student to Section. Please check section ID and student ID." +
+                    "\n Also check the number of students already enrolled in the Section." +
+                    "\n Also check if the student is already enrolled in the Section.";
+        }
+    }
+
+    public String removeStudentFromSection(Student student, Section section){
+        boolean result = sectionReg.removeStudentFromSection(student, section);
+        if (result) {
+            return "Success";
+        } else {
+            return "Failed removing Student from Section. Please check section ID and student ID.";
+        }
+    }
+
+    public Section getSection(String sectionID){
+        return sectionReg.getSection(sectionID);
     }
 
     public List<Student> getSectionStudentList(Section section){

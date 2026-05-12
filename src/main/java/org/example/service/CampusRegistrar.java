@@ -51,6 +51,7 @@ public class CampusRegistrar {
             return "Failed to set the student's program.";
         }
     }
+
     public String setStudentSection(String studentID, Section section){
         boolean result = studReg.setStudentSection(studentID, section);
         if (result) {
@@ -60,10 +61,26 @@ public class CampusRegistrar {
         }
     }
 
+    public Student getStudent(String studentID){
+        return studReg.getStudent(studentID);
+    }
 
-    public String savePayment(String paymentID, Student student, double balance, int units, boolean isPaid){
-        tuitionService.savePayment(paymentID, student, balance, units, isPaid);
-        return "Success";
+    public String displayStudentPayments(String studentID){
+        boolean result = studReg.displayStudentPayments(studentID);
+        if(result){
+            return "Success";
+        } else {
+            return "Failed displaying Student's payments.";
+        }
+    }
+
+
+    public String savePayment(String paymentID, Student student){
+        boolean result = tuitionService.savePayment(paymentID, student);
+        if(result) {
+            return "Success";
+        }
+        return "Failed saving payment.";
     }
 
     public String calculateTuitionFee(String paymentID, int units, double discountRate){
@@ -90,7 +107,12 @@ public class CampusRegistrar {
         }
     }
 
-    public List<Student> getStudentList(){
-        return studReg.getStudentList();
+    public String displayAllPayments(){
+        tuitionService.displayAllPayments();
+        return "Success";
+    }
+
+    public String setPaymentStudent(String paymentID, Student student){
+        return tuitionService.setPaymentStudent(paymentID, student);
     }
 }

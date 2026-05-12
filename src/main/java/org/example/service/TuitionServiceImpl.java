@@ -9,15 +9,28 @@ import java.util.List;
 public class TuitionServiceImpl implements TuitionService{
     private List<Payment> payments = new ArrayList<>();
 
-    public void savePayment(String paymentID, Student student, double balance, int units, boolean isPaid){
-        payments.add(new Payment(paymentID, student, balance, units, isPaid));
+    public boolean savePayment(String paymentID, Student student){
+        if(student == null){
+            return false;
+        }
+        payments.add(new Payment(paymentID, student));
+        return true;
     }
 
     public String calculateTuitionFee(String paymentID, int units, double discountRate){
         for(int i = 0; i < payments.size(); i++){
             if (payments.get(i).getPaymentID().equals(paymentID)){
-                double balance = units*payments.get(i).getPRICE_PER_UNIT()*(discountRate/100);
+                double balance = 0;
+                if(discountRate > 0){
+                    balance = units*payments.get(i).getPRICE_PER_UNIT()-(units*payments.get(i).getPRICE_PER_UNIT())*(discountRate/100);
+                } else if (discountRate == 0) {
+                    balance = units*payments.get(i).getPRICE_PER_UNIT();
+                } else if (discountRate < 0){
+                    return "Calculation Error. Please double check paymentID, units, or discount rate.";
+                }
+
                 payments.get(i).setBalance(balance);
+                payments.get(i).setUnits(units);
                 return "Tuition Fee: " + balance;
             }
         }
@@ -67,4 +80,24 @@ public class TuitionServiceImpl implements TuitionService{
 
         return isPaid;
     }
+
+    public String setPaymentStudent(String paymentID,Student student){
+        if(student == null){
+            return "Failed setting student to payment.";
+        }
+        for(int i = 0; i < payments.size(); i++){
+            if (payments.get(i).getPaymentID().equals(paymentID)){
+                payments.get(i).setStudent(student);
+                return "Success";
+            }
+        }
+        return "Failed setting student to payment.";
+    }
+
+    public boolean displayAllPayments(){
+        System.out.println(payments);
+        System.out.println();
+        return true;
+    }
+
 }

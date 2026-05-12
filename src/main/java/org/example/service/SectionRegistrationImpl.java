@@ -16,6 +16,7 @@ public class SectionRegistrationImpl implements SectionRegistration{
 
     public boolean displayAllSections(){
         System.out.println(sectionList);
+        System.out.println();
         return true;
     }
 
@@ -40,6 +41,12 @@ public class SectionRegistrationImpl implements SectionRegistration{
     }
 
     public boolean setProgramToSection(Program program, Section section){
+        if(program == null){
+            return false;
+        }
+        if (section == null) {
+            return false;
+        }
         for(int i = 0; i<sectionList.size(); i++){
             if(sectionList.get(i).getSectionID().equals(section.getSectionID())){
                 sectionList.get(i).setProgram(program);
@@ -50,21 +57,72 @@ public class SectionRegistrationImpl implements SectionRegistration{
     }
 
     public boolean displaySectionProgram(Section section){
-        System.out.println(section.getProgramName());
+        if(section == null){
+            return false;
+        }
+        System.out.println("Program of Section: " + section.getProgramName());
+        return true;
+    }
+
+    public boolean displayNumberOfStudentsEnrolled(Section section){
+        if(section == null){
+            return false;
+        }
+        System.out.println("Number of Students enrolled in Section: " + section.getSectionStudentList().size());
         return true;
     }
 
     public boolean addStudentToSection(Student student, Section section){
+        if(student == null){
+            return false;
+        }
+        if (section == null) {
+            return false;
+        }
         for(int i = 0; i<sectionList.size(); i++){
             if(sectionList.get(i).getSectionID().equals(section.getSectionID())){
-                if(sectionList.get(i).getSectionStudentList().size()<sectionList.get(i).getMAX_NUMBER_OF_STUDENTS()){
-                    sectionList.get(i).addStudentsToSection(student);
-                    return true;
+                for(int j = 0; j<sectionList.get(i).getSectionStudentList().size(); j++){
+                    if(sectionList.get(i).getSectionStudentList().get(j).getID().equals(student.getID())){
+                        return false;
+                    }
                 }
+                sectionList.get(i).addStudentsToSection(student);
+                return true;
             }
         }
         return false;
     }
+
+    public boolean removeStudentFromSection(Student student, Section section){
+        if(student == null){
+            return false;
+        }
+        if (section == null) {
+            return false;
+        }
+        for(int i = 0; i<sectionList.size(); i++){
+            if(sectionList.get(i).getSectionID().equals(section.getSectionID())){
+                for(int j = 0; j<sectionList.get(i).getSectionStudentList().size(); j++){
+                    if(sectionList.get(i).getSectionStudentList().get(j).getID().equals(student.getID())){
+                        sectionList.get(i).getSectionStudentList().remove(j);
+                        return true;
+                    }
+                }
+                return false;
+            }
+        }
+        return false;
+    }
+
+    public Section getSection(String sectionID){
+        for(int i = 0; i<sectionList.size(); i++){
+            if(sectionList.get(i).getSectionID().equals(sectionID)){
+                return sectionList.get(i);
+            }
+        }
+        return null;
+    }
+
 
     public List<Student> getSectionStudentList(Section section){
         return section.getSectionStudentList();

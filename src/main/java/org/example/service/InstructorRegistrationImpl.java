@@ -16,6 +16,7 @@ public class InstructorRegistrationImpl implements InstructorRegistration{
 
     public boolean displayAllInstructors(){
         System.out.println(instructorList);
+        System.out.println();
         return true;
     }
 
@@ -39,7 +40,10 @@ public class InstructorRegistrationImpl implements InstructorRegistration{
         return false;
     }
 
-    public boolean setProgram(String instructorID, Program program){
+    public boolean setInstructorProgram(String instructorID, Program program){
+        if(program == null){
+            return false;
+        }
         for(int i = 0; i< instructorList.size(); i++){
             if(instructorList.get(i).getID().equals(instructorID)){
                 instructorList.get(i).setProgram(program);
@@ -52,16 +56,33 @@ public class InstructorRegistrationImpl implements InstructorRegistration{
     public boolean displayInstructorProgram(String instructorID){
         for(int i = 0; i< instructorList.size(); i++){
             if(instructorList.get(i).getID().equals(instructorID)){
-                System.out.println(instructorList.get(i).getProgramName());
+                System.out.println("Program of Instructor: " + instructorList.get(i).getProgramName());
                 return true;
             }
         }
         return false;
     }
 
-    public boolean addCourseToInstructor(Course course, String instructorID){
+    public Instructor getInstructor(String instructorID){
         for(int i = 0; i< instructorList.size(); i++){
             if(instructorList.get(i).getID().equals(instructorID)){
+                return instructorList.get(i);
+            }
+        }
+        return null;
+    }
+
+    public boolean addCourseToInstructor(Course course, String instructorID){
+        if(course == null){
+            return false;
+        }
+        for(int i = 0; i< instructorList.size(); i++){
+            if(instructorList.get(i).getID().equals(instructorID)){
+                for(int j = 0; j<instructorList.get(i).getCoursesHandled().size(); j++){
+                    if(instructorList.get(i).getCoursesHandled().get(j).getCourseID().equals(course.getCourseID())){
+                        return false;
+                    }
+                }
                 instructorList.get(i).addCourse(course);
                 return true;
             }
@@ -79,8 +100,12 @@ public class InstructorRegistrationImpl implements InstructorRegistration{
         return false;
     }
 
-    public void displayInstructorCourses(Instructor instructor){
+    public boolean displayInstructorCourses(Instructor instructor){
+        if(instructor == null){
+            return false;
+        }
         System.out.println(instructor.displayCoursesHandled());
+        return true;
     }
 
     public List<Instructor> getInstructorList(){

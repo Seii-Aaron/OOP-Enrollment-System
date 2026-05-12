@@ -14,6 +14,7 @@ public class DepartmentRegistrationImpl implements DepartmentRegistration{
 
     public boolean displayAllDepartments(){
         System.out.println(departmentList);
+        System.out.println();
         return true;
     }
 

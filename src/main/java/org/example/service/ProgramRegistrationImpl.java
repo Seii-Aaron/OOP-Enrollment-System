@@ -16,6 +16,7 @@ public class ProgramRegistrationImpl implements ProgramRegistration{
 
     public boolean displayAllPrograms(){
         System.out.println(programList);
+        System.out.println();
         return true;
     }
 
@@ -52,6 +53,15 @@ public class ProgramRegistrationImpl implements ProgramRegistration{
     public boolean displayProgramDepartment(Program program){
         System.out.println(program.getDepartmentName());
         return true;
+    }
+
+    public Program getProgram(String programID){
+        for(int i = 0; i<programList.size(); i++){
+            if(programList.get(i).getProgramID().equals(programID)){
+                return programList.get(i);
+            }
+        }
+        return null;
     }
 
     public List<Program> getProgramList(){

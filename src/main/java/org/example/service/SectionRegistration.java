@@ -13,7 +13,10 @@ public interface SectionRegistration {
     boolean removeSection(String sectionID);
     boolean setProgramToSection(Program program, Section section);
     boolean displaySectionProgram(Section section);
+    boolean displayNumberOfStudentsEnrolled(Section section);
     boolean addStudentToSection(Student student, Section section);
+    boolean removeStudentFromSection(Student student, Section section);
+    Section getSection(String sectionID);
     List<Student> getSectionStudentList(Section section);
     List<Section> getSectionList();
 }
