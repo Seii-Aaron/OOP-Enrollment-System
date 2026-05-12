@@ -91,6 +91,9 @@ public class InstructorRegistrationImpl implements InstructorRegistration{
     }
 
     public boolean removeCourseFromInstructor(Course course, String instructorID){
+        if (course == null) {
+            return false;
+        }
         for(int i = 0; i< instructorList.size(); i++){
             if(instructorList.get(i).getID().equals(instructorID)){
                 instructorList.get(i).removeCourse(course);

@@ -402,7 +402,7 @@ public class Main{
                         "7. Add Course to Instructor\n" +
                         "8. Remove Course from Instructor\n" +
                         "9. Display Courses of an Instructor\n" +
-                        "10. Back to Menu" +
+                        "10. Back to Menu\n" +
                         "Answer: ");
                 int srNum = scan.nextInt();
                 scan.nextLine();
@@ -507,6 +507,137 @@ public class Main{
                 }
 
             } else if (num1 == 6){
+                System.out.print("\nProgram Registration:\n" +
+                        "Pick a number.\n" +
+                        "1. Create New Program\n" +
+                        "2. Display All Programs\n" +
+                        "3. Update Program\n" +
+                        "4. Remove Program\n" +
+                        "5. Set Department of Program\n" +
+                        "6. Display Department of Program\n" +
+                        "7. Add Course to Program\n" +
+                        "8. Remove Course from Program\n" +
+                        "9. Add Section to Program\n" +
+                        "10. Remove Section from Program\n" +
+                        "11. Back to Menu\n" +
+                        "Answer: ");
+                int srNum = scan.nextInt();
+                scan.nextLine();
+                switch (srNum) {
+                    case 1:
+                        System.out.println("\nCreate New Program");
+                        System.out.println("Enter Program ID: ");
+                        String programID = scan.nextLine();
+                        System.out.println("Enter Program Name: ");
+                        String programName = scan.nextLine();
+                        System.out.println(humanResources.saveProgram(programID, programName));
+                        break;
+
+                    case 2:
+                        humanResources.displayAllPrograms();
+                        break;
+
+                    case 3:
+                        humanResources.displayAllPrograms();
+                        System.out.println("Update Program");
+                        System.out.println("Select Program");
+                        System.out.println("Enter Program ID: ");
+                        String programID2 = scan.nextLine();
+                        System.out.println("Enter Program Name: ");
+                        String programName2 = scan.nextLine();
+                        System.out.println(humanResources.updateProgram(programID2, programName2));
+                        break;
+
+                    case 4:
+                        humanResources.displayAllPrograms();
+                        System.out.println("Remove Program");
+                        System.out.println("Select Program");
+                        System.out.println("Enter Program ID: ");
+                        String programID3 = scan.nextLine();
+                        System.out.println(humanResources.removeProgram(programID3));
+                        break;
+
+                    case 5:
+                        humanResources.displayAllPrograms();
+                        System.out.println("Set Department of Program");
+                        System.out.println("Select Program");
+                        System.out.println("Enter Program ID: ");
+                        String programID4 = scan.nextLine();
+                        humanResources.displayAllDepartments();
+                        System.out.println("Enter Department ID: ");
+                        String deptID = scan.nextLine();
+                        System.out.println(humanResources.setProgramDepartment(humanResources.getDepartment(deptID), humanResources.getProgram(programID4)));
+                        break;
+
+                    case 6:
+                        humanResources.displayAllPrograms();
+                        System.out.println("Display Department of Program");
+                        System.out.println("Select Program");
+                        System.out.println("Enter Program ID: ");
+                        String programID5 = scan.nextLine();
+                        System.out.println(humanResources.displayProgramDepartment(humanResources.getProgram(programID5)));
+                        break;
+
+                    case 7:
+                        humanResources.displayAllPrograms();
+                        System.out.println("Add Course to Program");
+                        System.out.println("Select Program");
+                        System.out.println("Enter Program ID: ");
+                        String programID6 = scan.nextLine();
+                        humanResources.displayAllCourses();
+                        System.out.println("Select Course");
+                        System.out.println("Enter Course ID: ");
+                        String courseID = scan.nextLine();
+                        System.out.println(humanResources.addCourseToProgram(humanResources.getProgram(programID6), humanResources.getCourse(courseID)));
+                        break;
+
+                    case 8:
+                        humanResources.displayAllPrograms();
+                        System.out.println("Remove Course from Program");
+                        System.out.println("Select Program");
+                        System.out.println("Enter Program ID: ");
+                        String programID7 = scan.nextLine();
+                        humanResources.displayAllCourses();
+                        System.out.println("Select Course");
+                        System.out.println("Enter Course ID: ");
+                        String courseID2 = scan.nextLine();
+                        System.out.println(humanResources.removeCourseFromProgram(humanResources.getProgram(programID7), humanResources.getCourse(courseID2)));
+                        break;
+
+                    case 9:
+                        humanResources.displayAllPrograms();
+                        System.out.println("Add Section to Program");
+                        System.out.println("Select Program");
+                        System.out.println("Enter Program ID: ");
+                        String programID8 = scan.nextLine();
+                        humanResources.displayAllSections();
+                        System.out.println("Select Section");
+                        System.out.println("Enter Section ID: ");
+                        String sectionID = scan.nextLine();
+                        System.out.println(humanResources.addSectionToProgram(humanResources.getProgram(programID8), humanResources.getSection(sectionID)));
+                        break;
+
+                    case 10:
+                        humanResources.displayAllPrograms();
+                        System.out.println("Remove Section from Program");
+                        System.out.println("Select Program");
+                        System.out.println("Enter Program ID: ");
+                        String programID9 = scan.nextLine();
+                        humanResources.displayAllSections();
+                        System.out.println("Select Section");
+                        System.out.println("Enter Section ID: ");
+                        String sectionID2 = scan.nextLine();
+                        System.out.println(humanResources.removeSectionFromProgram(humanResources.getProgram(programID9), humanResources.getSection(sectionID2)));
+                        break;
+
+                    case 11:
+                        break;
+
+                    default:
+                        System.out.println("Error.");
+                        break;
+
+                }
 
             } else if (num1 == 7){
 

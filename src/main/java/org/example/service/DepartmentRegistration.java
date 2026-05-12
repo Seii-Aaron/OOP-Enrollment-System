@@ -9,5 +9,6 @@ public interface DepartmentRegistration {
     public boolean displayAllDepartments();
     public boolean updateDepartment(String departmentID, String departmentName);
     public boolean removeDepartment(String departmentID);
+    public Department getDepartment(String departmentID);
     public List<Department> getDepartmentList();
 }

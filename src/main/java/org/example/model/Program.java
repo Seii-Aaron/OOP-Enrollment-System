@@ -54,6 +54,14 @@ public class Program {
         this.department = department;
     }
 
+    public void addCourseToProgram(Course course){
+        progCourseList.add(course);
+    }
+
+    public void addSectionToProgram(Section section){
+        progSectionList.add(section);
+    }
+
     public List<Course> getProgCourseList() {
         return progCourseList;
     }
@@ -69,8 +77,8 @@ public class Program {
                 "programID='" + programID + '\'' +
                 ", programName='" + programName + '\'' +
                 ", department=" + this.getDepartmentName() +
-                ", progCourseList=" + progCourseList +
-                ", progSectionList=" + progSectionList +
+                ", \nprogCourseList=" + progCourseList.toString() +
+                ", \nprogSectionList=" + progSectionList.toString() +
                 " } ";
     }
 }

@@ -95,6 +95,9 @@ public class HumanResources {
         }
     }
 
+    public Department getDepartment(String departmentID){
+        return departmentReg.getDepartment(departmentID);
+    }
 
     public List<Department> getDepartmentList(){
         return departmentReg.getDepartmentList();
@@ -220,7 +223,47 @@ public class HumanResources {
 
     public String displayProgramDepartment(Program program){
         boolean result = programReg.displayProgramDepartment(program);
-        return "Success";
+        if(result){
+            return "Success";
+        } else {
+            return "Failed displaying Department of Program.";
+        }
+    }
+
+    public String addCourseToProgram(Program program, Course course){
+        boolean result = programReg.addCourseToProgram(program, course);
+        if(result){
+            return "Success";
+        } else {
+            return "Failed adding Course to Program.";
+        }
+    }
+
+    public String removeCourseFromProgram(Program program, Course course){
+        boolean result = programReg.removeCourseFromProgram(program, course);
+        if(result){
+            return "Success";
+        } else {
+            return "Failed removing Course from Program.";
+        }
+    }
+
+    public String addSectionToProgram(Program program, Section section){
+        boolean result = programReg.addSectionToProgram(program, section);
+        if(result){
+            return "Success";
+        } else {
+            return "Failed adding Section to Program.";
+        }
+    }
+
+    public String removeSectionFromProgram(Program program, Section section){
+        boolean result = programReg.removeSectionFromProgram(program, section);
+        if(result){
+            return "Success";
+        } else {
+            return "Failed removing Section from Program.";
+        }
     }
 
     public Program getProgram(String programID){
