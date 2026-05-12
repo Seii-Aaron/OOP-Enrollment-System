@@ -16,6 +16,7 @@ public class CourseRegistrationImpl implements CourseRegistration{
 
     public boolean displayAllCourses(){
         System.out.println(courseList);
+        System.out.println();
         return true;
     }
 

@@ -16,6 +16,7 @@ public class StudentRegistrationImpl implements StudentRegistration{
 
     public boolean displayAllStudent(){
         System.out.println(studentList);
+        System.out.println();
         return true;
     }
 
@@ -72,6 +73,17 @@ public class StudentRegistrationImpl implements StudentRegistration{
             }
         }
         return null;
+    }
+
+    public boolean displayStudentPayments(String studentID){
+        for(int i = 0; i< studentList.size(); i++){
+            if(studentList.get(i).getID().equals(studentID)){
+                System.out.println(studentList.get(i).getStudentPayments());
+                System.out.println();
+                return true;
+            }
+        }
+        return false;
     }
 
     public List<Student> getStudentList() {

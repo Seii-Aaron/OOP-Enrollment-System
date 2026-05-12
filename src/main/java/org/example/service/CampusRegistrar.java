@@ -63,6 +63,11 @@ public class CampusRegistrar {
         return studReg.getStudent(studentID);
     }
 
+    public String displayStudentPayments(String studentID){
+        studReg.displayStudentPayments(studentID);
+        return "Success";
+    }
+
 
     public String savePayment(String paymentID, double balance, int units, boolean isPaid){
         tuitionService.savePayment(paymentID, balance, units, isPaid);

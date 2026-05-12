@@ -16,6 +16,7 @@ public class ProgramRegistrationImpl implements ProgramRegistration{
 
     public boolean displayAllPrograms(){
         System.out.println(programList);
+        System.out.println();
         return true;
     }
 

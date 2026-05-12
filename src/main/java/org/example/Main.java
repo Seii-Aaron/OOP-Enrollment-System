@@ -34,6 +34,7 @@ public class Main{
                         "4. Remove Student\n" +
                         "5. Set Program of Student\n" +
                         "6. Set Section of Student\n" +
+                        "7. Display Payments of Student\n" +
                         "Answer: ");
                 int srNum = scan.nextInt();
                 scan.nextLine();
@@ -91,6 +92,14 @@ public class Main{
                         System.out.println("Enter Section ID: ");
                         String sectionID = scan.nextLine();
                         System.out.println(campusRegistrar.setStudentSection(studID3, humanResources.getSection(sectionID)));
+                        break;
+
+                    case 7:
+                        campusRegistrar.displayAllStudent();
+                        System.out.println("Display a Student's payments");
+                        System.out.println("Enter Student ID: ");
+                        String studID4 = scan.nextLine();
+                        campusRegistrar.displayStudentPayments(studID4);
                         break;
 
                     default:
@@ -162,6 +171,46 @@ public class Main{
 
 
             } else if (num1 == 3){
+                System.out.print("\nStudent Registration:\n" +
+                        "Pick a number.\n" +
+                        "1. Save Payment\n" +
+                        "2. Calculate Tuition Fee\n" +
+                        "3. Make Payment\n" +
+                        "4. Get Balance\n" +
+                        "5. Set Student to Payment\n" +
+                        "6. Check Payment Status\n" +
+                        "Answer: ");
+                int srNum = scan.nextInt();
+                scan.nextLine();
+                switch (srNum) {
+                    case 1:
+                        System.out.println("Save Payment");
+                        break;
+
+                    case 2:
+
+                        break;
+
+                    case 3:
+
+                        break;
+
+                    case 4:
+
+                        break;
+
+                    case 5:
+
+                        break;
+
+                    case 6:
+
+                        break;
+
+                    default:
+                        System.out.println("Error.");
+                        break;
+                }
 
             } else if (num1 == 4){
 

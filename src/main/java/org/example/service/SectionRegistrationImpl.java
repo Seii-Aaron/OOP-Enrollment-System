@@ -16,6 +16,7 @@ public class SectionRegistrationImpl implements SectionRegistration{
 
     public boolean displayAllSections(){
         System.out.println(sectionList);
+        System.out.println();
         return true;
     }
 

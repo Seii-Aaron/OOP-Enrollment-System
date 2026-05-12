@@ -16,6 +16,7 @@ public class InstructorRegistrationImpl implements InstructorRegistration{
 
     public boolean displayAllInstructors(){
         System.out.println(instructorList);
+        System.out.println();
         return true;
     }
 
