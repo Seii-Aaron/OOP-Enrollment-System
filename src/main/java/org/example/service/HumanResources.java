@@ -239,13 +239,30 @@ public class HumanResources {
     }
 
     public String displaySectionProgram(Section section){
-        sectionReg.displaySectionProgram(section);
-        return "Success";
+        boolean result = sectionReg.displaySectionProgram(section);
+        if(result){
+            return "Success";
+        } else {
+            return "Failed displaying section program.";
+        }
+    }
+
+    public String displayNumberOfStudentsEnrolled(Section section){
+        boolean result = sectionReg.displaySectionProgram(section);
+        if(result){
+            return "Success";
+        } else {
+            return "Failed displaying number of students enrolled.";
+        }
     }
 
     public String addStudentToSection(Student student, Section section){
         boolean result = sectionReg.addStudentToSection(student, section);
-        return "Success";
+        if(result){
+            return "Success";
+        } else {
+            return "Failed adding Student to Section. Please check section ID, student ID, or the number of students already enrolled in the Section.";
+        }
     }
 
     public Section getSection(String sectionID){

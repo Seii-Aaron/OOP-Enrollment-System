@@ -42,6 +42,9 @@ public class SectionRegistrationImpl implements SectionRegistration{
 
     public boolean setProgramToSection(Program program, Section section){
         for(int i = 0; i<sectionList.size(); i++){
+            if(program == null){
+                return false;
+            }
             if(sectionList.get(i).getSectionID().equals(section.getSectionID())){
                 sectionList.get(i).setProgram(program);
                 return true;
@@ -51,11 +54,25 @@ public class SectionRegistrationImpl implements SectionRegistration{
     }
 
     public boolean displaySectionProgram(Section section){
-        System.out.println(section.getProgramName());
+        if(section == null){
+            return false;
+        }
+        System.out.println("Program of Section: " + section.getProgramName());
+        return true;
+    }
+
+    public boolean displayNumberOfStudentsEnrolled(Section section){
+        if(section == null){
+            return false;
+        }
+        System.out.println("Number of Students enrolled in Section: " + section.getSectionStudentList().size());
         return true;
     }
 
     public boolean addStudentToSection(Student student, Section section){
+        if(student == null){
+            return false;
+        }
         for(int i = 0; i<sectionList.size(); i++){
             if(sectionList.get(i).getSectionID().equals(section.getSectionID())){
                 if(sectionList.get(i).getSectionStudentList().size()<sectionList.get(i).getMAX_NUMBER_OF_STUDENTS()){
@@ -75,6 +92,7 @@ public class SectionRegistrationImpl implements SectionRegistration{
         }
         return null;
     }
+
 
     public List<Student> getSectionStudentList(Section section){
         return section.getSectionStudentList();

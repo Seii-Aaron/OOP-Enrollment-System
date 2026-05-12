@@ -268,6 +268,106 @@ public class Main{
                 }
 
             } else if (num1 == 4){
+                System.out.print("\nSection Registration:\n" +
+                        "Pick a number.\n" +
+                        "1. Create New Section\n" +
+                        "2. Display All Sections\n" +
+                        "3. Update Section\n" +
+                        "4. Remove Section\n" +
+                        "5. Set Program of a Section\n" +
+                        "6. Display Program of a Section\n" +
+                        "7. Display Number of Students Enrolled in a Section\n" +
+                        "8. Add Student to a Section\n" +
+                        "9. Back to Menu\n" +
+                        "Answer: ");
+                int srNum = scan.nextInt();
+                scan.nextLine();
+                switch (srNum) {
+                    case 1:
+                        System.out.println("\nCreate New Section");
+                        System.out.println("Enter Section ID: ");
+                        String sectionID = scan.nextLine();
+                        System.out.println("Enter Section Name: ");
+                        String sectionName = scan.nextLine();
+                        System.out.println(humanResources.saveSection(sectionID, sectionName));
+                        break;
+
+                    case 2:
+                        humanResources.displayAllSections();
+                        break;
+
+                    case 3:
+                        humanResources.displayAllSections();
+                        System.out.println("Update Section");
+                        System.out.println("Select Section");
+                        System.out.println("Enter Section ID: ");
+                        String sectionID2 = scan.nextLine();
+                        System.out.println("Enter Section Name: ");
+                        String sectionName2 = scan.nextLine();
+                        System.out.println(humanResources.updateSection(sectionID2, sectionName2));
+                        break;
+
+                    case 4:
+                        humanResources.displayAllSections();
+                        System.out.println("Remove Section");
+                        System.out.println("Select Section");
+                        System.out.println("Enter Section ID: ");
+                        String sectionID3 = scan.nextLine();
+                        System.out.println(humanResources.removeSection(sectionID3));
+                        break;
+
+                    case 5:
+                        humanResources.displayAllSections();
+                        System.out.println("Set the Program of a Section");
+                        System.out.println("Select Section");
+                        System.out.println("Enter Section ID: ");
+                        String sectionID4 = scan.nextLine();
+                        humanResources.displayAllPrograms();
+                        System.out.println("Select Program");
+                        System.out.println("Enter Program ID: ");
+                        String programID = scan.nextLine();
+                        System.out.println(humanResources.setProgramToSection(humanResources.getProgram(programID), humanResources.getSection(sectionID4)));
+                        break;
+
+                    case 6:
+                        humanResources.displayAllSections();
+                        System.out.println("Display the Program of a Section");
+                        System.out.println("Select Section");
+                        System.out.println("Enter Section ID: ");
+                        String sectionID5 = scan.nextLine();
+                        System.out.println(humanResources.displaySectionProgram(humanResources.getSection(sectionID5)));
+                        break;
+
+                    case 7:
+                        humanResources.displayAllSections();
+                        System.out.println("Display Number of Students Enrolled in a Section");
+                        System.out.println("Select Section");
+                        System.out.println("Enter Section ID: ");
+                        String sectionID6 = scan.nextLine();
+                        System.out.println(humanResources.displayNumberOfStudentsEnrolled(humanResources.getSection(sectionID6)));
+                        break;
+
+                    case 8:
+                        humanResources.displayAllSections();
+                        System.out.println("Add Student to a Section");
+                        System.out.println("Select Section");
+                        System.out.println("Enter Section ID: ");
+                        String sectionID7 = scan.nextLine();
+                        campusRegistrar.displayAllStudent();
+                        System.out.println("Select Student");
+                        System.out.println("Enter Student ID: ");
+                        String studentID = scan.nextLine();
+                        System.out.println(humanResources.addStudentToSection(campusRegistrar.getStudent(studentID), humanResources.getSection(sectionID7)));
+                        break;
+
+                    case 9:
+                        break;
+
+                    default:
+                        System.out.println("Error.");
+                        break;
+
+                }
 
             } else if (num1 == 5){
 
