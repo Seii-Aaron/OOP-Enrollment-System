@@ -14,8 +14,8 @@ public class Main{
         while (true){
             System.out.print("\nPick a number.\n" +
                     "1. Student Registration\n" +
-                    "2. Tuition Service\n" +
-                    "3. Course Registration\n" +
+                    "2. Course Registration\n" +
+                    "3. Tuition Service\n" +
                     "4. Section Registration\n" +
                     "5. Instructor Registration\n" +
                     "6. Program Registration\n" +
@@ -80,6 +80,7 @@ public class Main{
                         System.out.println("Enter program ID: ");
                         String progID = scan.nextLine();
                         System.out.println(campusRegistrar.setStudentProgram(studID2, humanResources.getProgram(progID)));
+                        break;
 
                     case 6:
                         campusRegistrar.displayAllStudent();
@@ -90,6 +91,7 @@ public class Main{
                         System.out.println("Enter Section ID: ");
                         String sectionID = scan.nextLine();
                         System.out.println(campusRegistrar.setStudentSection(studID3, humanResources.getSection(sectionID)));
+                        break;
 
                     default:
                         System.out.println("Error.");
@@ -105,6 +107,7 @@ public class Main{
                         "2. Display Course\n" +
                         "3. Update Course\n" +
                         "4. Remove Course\n" +
+                        "5. Set Program of Course\n" +
                         "Answer: ");
                 int crNum = scan.nextInt();
                 scan.nextLine();
@@ -140,6 +143,17 @@ public class Main{
                         System.out.println("Enter Course ID: ");
                         String delCourseID = scan.nextLine();
                         System.out.println(humanResources.removeCourse(delCourseID));
+                        break;
+
+                    case 5:
+                        humanResources.displayAllCourses();
+                        System.out.println("Set Program of Course.");
+                        System.out.println("Enter Course ID: ");
+                        String courseID2 = scan.nextLine();
+                        System.out.println(humanResources.displayAllPrograms());
+                        System.out.println("Enter Program ID: ");
+                        String progID = scan.nextLine();
+                        System.out.println(humanResources.setCourseProgram(courseID2, humanResources.getProgram(progID)));
                         break;
 
                     default:
