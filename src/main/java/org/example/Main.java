@@ -75,11 +75,21 @@ public class Main{
                         campusRegistrar.displayAllStudent();
                         System.out.println("Set Program to Student.");
                         System.out.println("Enter Student ID: ");
-                        String StudID = scan.nextLine();
+                        String studID2 = scan.nextLine();
                         humanResources.displayAllPrograms();
                         System.out.println("Enter program ID: ");
                         String progID = scan.nextLine();
-                        System.out.println(campusRegistrar.setStudentProgram(StudID, ));
+                        System.out.println(campusRegistrar.setStudentProgram(studID2, humanResources.getProgram(progID)));
+
+                    case 6:
+                        campusRegistrar.displayAllStudent();
+                        System.out.println("Set Section to Student.");
+                        System.out.println("Enter Student ID: ");
+                        String studID3 = scan.nextLine();
+                        humanResources.displayAllSections();
+                        System.out.println("Enter Section ID: ");
+                        String sectionID = scan.nextLine();
+                        System.out.println(campusRegistrar.setStudentSection(studID3, humanResources.getSection(sectionID)));
 
                     default:
                         System.out.println("Error.");

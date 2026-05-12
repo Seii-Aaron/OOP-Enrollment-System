@@ -40,6 +40,9 @@ public class StudentRegistrationImpl implements StudentRegistration{
     }
 
     public boolean setStudentProgram(String studentID, Program program){
+        if(program == null){
+            return false;
+        }
         for(int i = 0; i< studentList.size(); i++){
             if(studentList.get(i).getID().equals(studentID)){
                 studentList.get(i).setProgram(program);
@@ -50,6 +53,9 @@ public class StudentRegistrationImpl implements StudentRegistration{
     }
 
     public boolean setStudentSection(String studentID, Section section){
+        if(section == null){
+            return false;
+        }
         for(int i = 0; i< studentList.size(); i++){
             if(studentList.get(i).getID().equals(studentID)){
                 studentList.get(i).setSection(section);

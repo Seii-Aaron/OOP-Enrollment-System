@@ -193,6 +193,10 @@ public class HumanResources {
         return "Success";
     }
 
+    public Program getProgram(String programID){
+        return programReg.getProgram(programID);
+    }
+
     public List<Program> getProgramList(){
         return programReg.getProgramList();
     }
@@ -242,6 +246,10 @@ public class HumanResources {
     public String addStudentToSection(Student student, Section section){
         boolean result = sectionReg.addStudentToSection(student, section);
         return "Success";
+    }
+
+    public Section getSection(String sectionID){
+        return sectionReg.getSection(sectionID);
     }
 
     public List<Student> getSectionStudentList(Section section){

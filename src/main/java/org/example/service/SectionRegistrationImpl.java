@@ -66,6 +66,15 @@ public class SectionRegistrationImpl implements SectionRegistration{
         return false;
     }
 
+    public Section getSection(String sectionID){
+        for(int i = 0; i<sectionList.size(); i++){
+            if(sectionList.get(i).getSectionID().equals(sectionID)){
+                return sectionList.get(i);
+            }
+        }
+        return null;
+    }
+
     public List<Student> getSectionStudentList(Section section){
         return section.getSectionStudentList();
     }

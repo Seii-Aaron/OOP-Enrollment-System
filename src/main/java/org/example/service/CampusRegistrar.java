@@ -49,6 +49,7 @@ public class CampusRegistrar {
             return "Failed to set the student's program.";
         }
     }
+
     public String setStudentSection(String studentID, Section section){
         boolean result = studReg.setStudentSection(studentID, section);
         if (result) {
