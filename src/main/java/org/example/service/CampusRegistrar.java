@@ -4,6 +4,8 @@ import org.example.model.Program;
 import org.example.model.Section;
 import org.example.model.Student;
 
+import java.util.List;
+
 public class CampusRegistrar {
     private StudentRegistration studReg;
     private TuitionService tuitionService;
