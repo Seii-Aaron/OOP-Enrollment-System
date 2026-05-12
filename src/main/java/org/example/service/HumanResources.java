@@ -75,6 +75,16 @@ public class HumanResources {
         return "Success";
     }
 
+    public String displayAllDepartmentPrograms(Department department){
+        departmentReg.displayAllDepartmentPrograms(department);
+        return "Success";
+    }
+
+    public String displayAllDepartmentInstructors(Department department){
+        departmentReg.displayAllDepartmentInstructors(department);
+        return "Success";
+    }
+
 
     public String updateDepartment(String departmentID, String departmentName){
         boolean result = departmentReg.updateDepartment(departmentID, departmentName);
@@ -92,6 +102,42 @@ public class HumanResources {
             return "Success";
         } else {
             return "Failed removing department.";
+        }
+    }
+
+    public String addProgramToDepartment(Department department, Program program){
+        boolean result = departmentReg.addProgramToDepartment(department, program);
+        if(result){
+            return "Success";
+        } else {
+            return "Failed adding Program to Department.";
+        }
+    }
+
+    public String removeProgramFromDepartment(Department department, Program program){
+        boolean result = departmentReg.removeProgramFromDepartment(department, program);
+        if(result){
+            return "Success";
+        } else {
+            return "Failed removing Program from Department.";
+        }
+    }
+
+    public String addInstructorToDepartment(Department department, Instructor instructor){
+        boolean result = departmentReg.addInstructorToDepartment(department, instructor);
+        if(result){
+            return "Success";
+        } else {
+            return "Failed adding Instructor to Department.";
+        }
+    }
+
+    public String removeInstructorFromDepartment(Department department, Instructor instructor){
+        boolean result = departmentReg.removeInstructorFromDepartment(department, instructor);
+        if(result){
+            return "Success";
+        } else {
+            return "Failed removing Instructor from Department.";
         }
     }
 

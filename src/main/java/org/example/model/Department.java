@@ -48,14 +48,21 @@ public class Department {
         return deptInstructorList;
     }
 
+    public void addProgramToDepartment(Program program){
+        deptProgramList.add(program);
+    }
+
+    public void addInstructorToDepartment(Instructor instructor){
+        deptInstructorList.add(instructor);
+    }
 
     @Override
     public String toString() {
         return "\nDepartment { " +
                 "departmentID='" + departmentID + '\'' +
                 ", departmentName='" + departmentName + '\'' +
-                ", deptProgramList=" + deptProgramList +
-                ", deptInstructorList=" + deptInstructorList +
+                ", \ndeptProgramList=" + deptProgramList.toString() +
+                ", \ndeptInstructorList=" + deptInstructorList.toString() +
                 " } ";
     }
 }
