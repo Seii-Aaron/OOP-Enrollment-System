@@ -64,9 +64,9 @@ public class Instructor extends Person{
     public String toString() {
         return "\n Instructor { " +
                 "instructorID=" + super.getID() +
-                "instructorName=" + super.getName() +
-                "program=" + this.getProgramName() +
-                "courses='" + coursesHandled.toString() + '\'' +
+                ", instructorName=" + super.getName() +
+                ", program=" + this.getProgramName() +
+                ", \ncourses='" + coursesHandled.toString() + '\'' +
                 " } ";
     }
 }

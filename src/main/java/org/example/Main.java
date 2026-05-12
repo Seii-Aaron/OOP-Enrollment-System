@@ -2,6 +2,7 @@ package org.example;
 
 import org.example.service.*;
 
+import javax.xml.transform.Source;
 import java.util.Scanner;
 
 public class Main{
@@ -278,7 +279,8 @@ public class Main{
                         "6. Display Program of a Section\n" +
                         "7. Display Number of Students Enrolled in a Section\n" +
                         "8. Add Student to a Section\n" +
-                        "9. Back to Menu\n" +
+                        "9. Remove Student from Section\n" +
+                        "10. Back to Menu\n" +
                         "Answer: ");
                 int srNum = scan.nextInt();
                 scan.nextLine();
@@ -361,6 +363,19 @@ public class Main{
                         break;
 
                     case 9:
+                        humanResources.displayAllSections();
+                        System.out.println("Remove Student from a Section");
+                        System.out.println("Select Section");
+                        System.out.println("Enter Section ID: ");
+                        String sectionID8 = scan.nextLine();
+                        campusRegistrar.displayAllStudent();
+                        System.out.println("Select Student");
+                        System.out.println("Enter Student ID: ");
+                        String studentID2 = scan.nextLine();
+                        System.out.println(humanResources.removeStudentFromSection(campusRegistrar.getStudent(studentID2), humanResources.getSection(sectionID8)));
+                        break;
+
+                    case 10:
                         break;
 
                     default:
@@ -370,6 +385,120 @@ public class Main{
                 }
 
             } else if (num1 == 5){
+                System.out.print("\nInstructor Registration:\n" +
+                        "Pick a number.\n" +
+                        "1. Create New Instructor\n" +
+                        "2. Display All Instructors\n" +
+                        "3. Update Instructor\n" +
+                        "4. Remove Instructor\n" +
+                        "5. Set Program of Instructor\n" +
+                        "6. Display Program of Instructor\n" +
+                        "7. Add Course to Instructor\n" +
+                        "8. Remove Course from Instructor\n" +
+                        "9. Display Courses of an Instructor\n" +
+                        "10. Back to Menu" +
+                        "Answer: ");
+                int srNum = scan.nextInt();
+                scan.nextLine();
+                switch (srNum) {
+                    case 1:
+                        System.out.println("\nCreate New Instructor");
+                        System.out.println("Enter Instructor ID: ");
+                        String instructorID = scan.nextLine();
+                        System.out.println("Enter Instructor Name: ");
+                        String instructorName = scan.nextLine();
+                        System.out.println(humanResources.saveInstructor(instructorID, instructorName));
+                        break;
+
+                    case 2:
+                        humanResources.displayAllInstructors();
+                        break;
+
+                    case 3:
+                        humanResources.displayAllInstructors();
+                        System.out.println("Update Instructor");
+                        System.out.println("Select Instructor");
+                        System.out.println("Enter Instructor ID: ");
+                        String instructorID2 = scan.nextLine();
+                        System.out.println("Enter Instructor Name: ");
+                        String instructorName2 = scan.nextLine();
+                        System.out.println(humanResources.updateInstructor(instructorID2, instructorName2));
+                        break;
+
+                    case 4:
+                        humanResources.displayAllInstructors();
+                        System.out.println("Remove Instructor");
+                        System.out.println("Select Instructor");
+                        System.out.println("Enter Instructor ID: ");
+                        String instructorID3 = scan.nextLine();
+                        System.out.println(humanResources.removeInstructor(instructorID3));
+                        break;
+
+                    case 5:
+                        humanResources.displayAllInstructors();
+                        System.out.println("Set Program of Instructor");
+                        System.out.println("Select Instructor");
+                        System.out.println("Enter Instructor ID: ");
+                        String instructorID4 = scan.nextLine();
+                        humanResources.displayAllPrograms();
+                        System.out.println("Select Program");
+                        System.out.println("Enter Program ID");
+                        String programID = scan.nextLine();
+                        System.out.println(humanResources.setInstructorProgram(instructorID4, humanResources.getProgram(programID)));
+                        break;
+
+                    case 6:
+                        humanResources.displayAllInstructors();
+                        System.out.println("Display Program of Instructor");
+                        System.out.println("Select Instructor");
+                        System.out.println("Enter Instructor ID: ");
+                        String instructorID5 = scan.nextLine();
+                        System.out.println(humanResources.displayInstructorProgram(instructorID5));
+                        break;
+
+                    case 7:
+                        humanResources.displayAllInstructors();
+                        System.out.println("Add Course to Instructor");
+                        System.out.println("Select Instructor");
+                        System.out.println("Enter Instructor ID: ");
+                        String instructorID6 = scan.nextLine();
+                        humanResources.displayAllCourses();
+                        System.out.println("Select Course");
+                        System.out.println("Enter Course ID: ");
+                        String courseID = scan.nextLine();
+                        System.out.println(humanResources.addCourseToInstructor(humanResources.getCourse(courseID), instructorID6));
+                        break;
+
+                    case 8:
+                        humanResources.displayAllInstructors();
+                        System.out.println("Remove Course from Instructor");
+                        System.out.println("Select Instructor");
+                        System.out.println("Enter Instructor ID: ");
+                        String instructorID7 = scan.nextLine();
+                        humanResources.displayAllCourses();
+                        System.out.println("Select Course");
+                        System.out.println("Enter Course ID: ");
+                        String courseID2 = scan.nextLine();
+                        System.out.println(humanResources.removeCourseFromInstructor(humanResources.getCourse(courseID2), instructorID7));
+                        break;
+
+                    case 9:
+                        humanResources.displayAllInstructors();
+                        System.out.println("Display Courses of an Instructor");
+                        System.out.println("Select Instructor");
+                        System.out.println("Enter Instructor ID: ");
+                        String instructorID8 = scan.nextLine();
+                        System.out.println(humanResources.displayInstructorCourses(humanResources.getInstructor(instructorID8)));
+                        break;
+
+                    case 10:
+                        break;
+
+                    default:
+                        System.out.println("Error.");
+                        break;
+
+                }
 
             } else if (num1 == 6){
 
@@ -377,7 +506,6 @@ public class Main{
 
             } else if (num1 == 8){
                 System.exit(0);
-
 
             } else {
                 System.out.println("Error.\n");

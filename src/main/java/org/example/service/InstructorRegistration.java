@@ -11,10 +11,11 @@ public interface InstructorRegistration {
     boolean displayAllInstructors();
     boolean updateInstructor(String instructorID, String name);
     boolean removeInstructor(String instructorID);
-    boolean setProgram(String instructorID, Program program);
+    boolean setInstructorProgram(String instructorID, Program program);
     boolean displayInstructorProgram(String instructorID);
+    Instructor getInstructor(String instructorID);
     boolean addCourseToInstructor(Course course, String instructorID);
     boolean removeCourseFromInstructor(Course course, String instructorID);
-    void displayInstructorCourses(Instructor instructor);
+    boolean displayInstructorCourses(Instructor instructor);
     List<Instructor> getInstructorList();
 }
