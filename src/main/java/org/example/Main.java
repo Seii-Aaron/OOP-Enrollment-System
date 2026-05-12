@@ -171,24 +171,40 @@ public class Main{
 
 
             } else if (num1 == 3){
-                System.out.print("\nStudent Registration:\n" +
+                System.out.print("\nTuition Service:\n" +
                         "Pick a number.\n" +
-                        "1. Save Payment\n" +
+                        "1. Create New Payment Transaction\n" +
                         "2. Calculate Tuition Fee\n" +
                         "3. Make Payment\n" +
                         "4. Get Balance\n" +
-                        "5. Set Student to Payment\n" +
+                        "5. Assign Student to Payment\n" +
                         "6. Check Payment Status\n" +
                         "Answer: ");
                 int srNum = scan.nextInt();
                 scan.nextLine();
                 switch (srNum) {
                     case 1:
-                        System.out.println("Save Payment");
+                        System.out.println("\nCreate New Payment Transaction");
+                        System.out.println("Enter Payment ID: ");
+                        String paymentID = scan.nextLine();
+                        campusRegistrar.displayAllStudent();
+                        System.out.println("Select Student");
+                        System.out.println("Enter Student ID: ");
+                        String studentID = scan.nextLine();
+                        System.out.println(campusRegistrar.savePayment(paymentID, campusRegistrar.getStudent(studentID)));
                         break;
 
                     case 2:
-
+                        campusRegistrar.displayAllPayments();
+                        System.out.println("Calculate Tuition Fee of a Payment");
+                        System.out.println("Select Payment");
+                        System.out.println("Enter Payment ID: ");
+                        String paymentID2 = scan.nextLine();
+                        System.out.println("Enter units: ");
+                        int units = scan.nextInt();
+                        System.out.println("Enter discount rate (in percentage, e.g. 100): ");
+                        double discountRate = scan.nextDouble();
+                        campusRegistrar.calculateTuitionFee(paymentID2, units, discountRate);
                         break;
 
                     case 3:

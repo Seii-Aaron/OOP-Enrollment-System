@@ -5,18 +5,22 @@ public class Payment {
     private Student student = new Student("NULL", "NULL");
     private double balance;
     private int units;
-    private boolean isPaid;
+    private boolean isPaid = false;
     private final int PRICE_PER_UNIT = 3000;
 
     public Payment(){
 
     }
 
-    public Payment(String paymentID, double balance, int units, boolean isPaid) {
+    public Payment(String paymentID, Student student){
+        this.paymentID = paymentID;
+        this.student = student;
+    }
+
+    public Payment(String paymentID, double balance, int units) {
         this.paymentID = paymentID;
         this.balance = balance;
         this.units = units;
-        this.isPaid = isPaid;
     }
 
     public String getPaymentID() {

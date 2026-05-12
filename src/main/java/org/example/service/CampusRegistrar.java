@@ -69,9 +69,12 @@ public class CampusRegistrar {
     }
 
 
-    public String savePayment(String paymentID, double balance, int units, boolean isPaid){
-        tuitionService.savePayment(paymentID, balance, units, isPaid);
-        return "Success";
+    public String savePayment(String paymentID, Student student){
+        boolean result = tuitionService.savePayment(paymentID, student);
+        if(result) {
+            return "Success";
+        }
+        return "Failed saving payment.";
     }
 
     public String calculateTuitionFee(String paymentID, int units, double discountRate){
@@ -96,5 +99,10 @@ public class CampusRegistrar {
         } else {
             return "Balance is not yet fully paid.";
         }
+    }
+
+    public String displayAllPayments(){
+        tuitionService.displayAllPayments();
+        return "Success";
     }
 }
