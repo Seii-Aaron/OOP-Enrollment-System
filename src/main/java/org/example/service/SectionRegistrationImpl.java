@@ -108,7 +108,6 @@ public class SectionRegistrationImpl implements SectionRegistration{
                         return true;
                     }
                 }
-                return false;
             }
         }
         return false;

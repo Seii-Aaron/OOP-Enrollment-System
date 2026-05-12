@@ -2,7 +2,6 @@ package org.example;
 
 import org.example.service.*;
 
-import javax.xml.transform.Source;
 import java.util.Scanner;
 
 public class Main{
@@ -396,7 +395,7 @@ public class Main{
                         "7. Add Course to Instructor\n" +
                         "8. Remove Course from Instructor\n" +
                         "9. Display Courses of an Instructor\n" +
-                        "10. Back to Menu" +
+                        "10. Back to Menu\n" +
                         "Answer: ");
                 int srNum = scan.nextInt();
                 scan.nextLine();
@@ -501,6 +500,70 @@ public class Main{
                 }
 
             } else if (num1 == 6){
+                System.out.print("\nProgram Registration:\n" +
+                        "Pick a number.\n" +
+                        "1. Create New Program\n" +
+                        "2. Display All Programs\n" +
+                        "3. Update Program\n" +
+                        "4. Remove Program\n" +
+                        "5. Set Department of Program\n" +
+                        "6. Display Department of Program\n" +
+                        "7. Add Course to Program\n" +
+                        "8. Remove Course from Program\n" +
+                        "9. Add Section to Program\n" +
+                        "10. Remove Section from Program\n" +
+                        "11. Back to Menu\n" +
+                        "Answer: ");
+                int srNum = scan.nextInt();
+                scan.nextLine();
+                switch (srNum) {
+                    case 1:
+                        System.out.println("\nCreate New Program");
+                        System.out.println("Enter Program ID: ");
+                        String sectionID = scan.nextLine();
+
+                        break;
+
+                    case 2:
+
+                        break;
+
+                    case 3:
+
+                        break;
+
+                    case 4:
+
+                        break;
+
+                    case 5:
+
+                        break;
+
+                    case 6:
+
+                        break;
+
+                    case 7:
+                        break;
+
+                    case 8:
+                        break;
+
+                    case 9:
+                        break;
+
+                    case 10:
+                        break;
+
+                    case 11:
+                        break;
+
+                    default:
+                        System.out.println("Error.");
+                        break;
+
+                }
 
             } else if (num1 == 7){
 
