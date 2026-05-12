@@ -49,6 +49,16 @@ public class CourseRegistrationImpl implements CourseRegistration{
         return false;
     }
 
+    public Course getCourse(String courseID){
+        for(int i = 0; i<courseList.size(); i++){
+            if(courseList.get(i).getCourseID().equals(courseID)){
+                return courseList.get(i);
+            }
+        }
+        return null;
+    }
+
+
     public List<Course> getCourseList() {
         return courseList;
     }

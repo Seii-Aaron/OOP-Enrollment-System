@@ -76,8 +76,10 @@ public class Main{
                         System.out.println("Set Program to Student.");
                         System.out.println("Enter Student ID: ");
                         String StudID = scan.nextLine();
-                        System.out.println("");
-                        System.out.println(campusRegistrar.setStudentProgram(StudID, program));
+                        humanResources.displayAllPrograms();
+                        System.out.println("Enter program ID: ");
+                        String progID = scan.nextLine();
+                        System.out.println(campusRegistrar.setStudentProgram(StudID, ));
 
                     default:
                         System.out.println("Error.");

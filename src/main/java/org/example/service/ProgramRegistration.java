@@ -12,5 +12,6 @@ public interface ProgramRegistration {
     boolean removeProgram(String programID);
     boolean setProgramDepartment(Department department, Program program);
     boolean displayProgramDepartment(Program program);
+    Program getProgram(String programID);
     List<Program> getProgramList();
 }

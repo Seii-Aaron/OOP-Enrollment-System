@@ -54,6 +54,15 @@ public class ProgramRegistrationImpl implements ProgramRegistration{
         return true;
     }
 
+    public Program getProgram(String programID){
+        for(int i = 0; i<programList.size(); i++){
+            if(programList.get(i).getProgramID().equals(programID)){
+                return programList.get(i);
+            }
+        }
+        return null;
+    }
+
     public List<Program> getProgramList(){
         return programList;
     }

@@ -11,5 +11,6 @@ public interface CourseRegistration {
     boolean updateCourse(String courseID, String name);
     boolean removeCourse(String courseID);
     boolean setCourseProgram(String courseID, Program program);
+    Course getCourse(String courseID);
     List<Course> getCourseList();
 }
